@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>zlstory</title>
   
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://zlstory.com/"/>
+  <updated>2017-08-24T09:47:29.153Z</updated>
+  <id>http://zlstory.com/</id>
+  
+  <author>
+    <name>zilan</name>
     
-    <entry>
-      <title><![CDATA[hexo搭建个人博客]]></title>
-      <url>/2017/08/24/2017-8-24-hexo/</url>
-      <content type="html"><![CDATA[<p>上一篇博客更新的时间是7月25，今天已经是8月24了，一个月都没更新博客了，不能说明这一个月没有学到新的知识点，只能说这个月的事情太多了，这是值得纪念的一个月。本来想总结一下，但是又怕觉得矫情，不过昨天刚结束完公司的事情，自己的事情还一大堆。由于换了新电脑，hexo的环境要重新再建，折腾了一上午，现在趁着还记得操作步骤，把他记下来，不然下次换电脑，又要开始重新找资料。（一个月不操作，md文档都不会了，还是看着文档写的。）</p>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo搭建个人博客</title>
+    <link href="http://zlstory.com/2017/08/24/2017-8-24-hexo/"/>
+    <id>http://zlstory.com/2017/08/24/2017-8-24-hexo/</id>
+    <published>2017-08-23T16:00:00.000Z</published>
+    <updated>2017-08-24T09:47:29.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇博客更新的时间是7月25，今天已经是8月24了，一个月都没更新博客了，不能说明这一个月没有学到新的知识点，只能说这个月的事情太多了，这是值得纪念的一个月。本来想总结一下，但是又怕觉得矫情，不过昨天刚结束完公司的事情，自己的事情还一大堆。由于换了新电脑，hexo的环境要重新再建，折腾了一上午，现在趁着还记得操作步骤，把他记下来，不然下次换电脑，又要开始重新找资料。（一个月不操作，md文档都不会了，还是看着文档写的。）</p>
 <h3 id="在E盘下输入命令"><a href="#在E盘下输入命令" class="headerlink" title="在E盘下输入命令"></a>在E盘下输入命令</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div><div class="line">hexo init fileName  </div><div class="line">cd fileName</div><div class="line">npm install</div></pre></td></tr></table></figure>
 <h3 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h3><pre><code>我用的主题是[maupassant](https://www.haomwei.com/technology/maupassant-hexo.html)，首先在fileName中输入以下命令
 </code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git clone https:<span class="comment">//github.com/tufu9441/maupassant-hexo.git themes/maupassant</span></div><div class="line">$ npm install hexo-renderer-jade@<span class="number">0.3</span><span class="number">.0</span> --save</div><div class="line">$ npm install hexo-renderer-sass --save</div></pre></td></tr></table></figure>
@@ -18,22 +35,28 @@
 <p>备注：这篇文章不是为了教你怎么利用hexo加github搭建博客的，只是为了我自己下次换电脑方便，哈哈哈~</p>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">安全感不是来源于爱，而是偏爱，人们只有确定自己是例外的那一个才会感到安心</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> hexo </tag>
-            
-            <tag> 闲谈 </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[响应式开发]]></title>
-      <url>/2017/07/25/2017-7-25-responsive/</url>
-      <content type="html"><![CDATA[<p>响应式设计：能够根据视口变化控制页面文档流，简单的来说就是针对任意设备对网页内容进行完美布局的一种显示机制。<br>媒体查询：在不改变页面内容的情况下，为特定的一些输出设备定制显示效果。</p>
+    <summary type="html">
+    
+      &lt;p&gt;上一篇博客更新的时间是7月25，今天已经是8月24了，一个月都没更新博客了，不能说明这一个月没有学到新的知识点，只能说这个月的事情太多了，这是值得纪念的一个月。本来想总结一下，但是又怕觉得矫情，不过昨天刚结束完公司的事情，自己的事情还一大堆。由于换了新电脑，hexo的环境要
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://zlstory.com/tags/hexo/"/>
+    
+      <category term="闲谈" scheme="http://zlstory.com/tags/%E9%97%B2%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>响应式开发</title>
+    <link href="http://zlstory.com/2017/07/25/2017-7-25-responsive/"/>
+    <id>http://zlstory.com/2017/07/25/2017-7-25-responsive/</id>
+    <published>2017-07-24T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.966Z</updated>
+    
+    <content type="html"><![CDATA[<p>响应式设计：能够根据视口变化控制页面文档流，简单的来说就是针对任意设备对网页内容进行完美布局的一种显示机制。<br>媒体查询：在不改变页面内容的情况下，为特定的一些输出设备定制显示效果。</p>
 <h3 id="视口与屏幕尺寸"><a href="#视口与屏幕尺寸" class="headerlink" title="视口与屏幕尺寸"></a>视口与屏幕尺寸</h3><p>视口：浏览器窗口内的内容区域，不包含工具栏、标签栏等。<br>屏幕尺寸：设备的物理显示区域。</p>
 <h3 id="媒体查询的特性"><a href="#媒体查询的特性" class="headerlink" title="媒体查询的特性"></a>媒体查询的特性</h3><ol>
 <li>width：视口宽度</li>
@@ -59,22 +82,29 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用js判断设备宽度以改变文字大小</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> docEl = doc.documentElement,</div><div class="line">        resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</div><div class="line">        recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> clientWidth = docEl.clientWidth;</div><div class="line">            <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</div><div class="line">            docEl.style.fontSize = <span class="number">50</span> * (clientWidth / <span class="number">375</span>) + <span class="string">'px'</span>;</div><div class="line">        &#125;;</div><div class="line">    <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    win.addEventListener(resizeEvt, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        clearTimeout(tid);</div><div class="line">        tid = setTimeout(recalc, <span class="number">300</span>);</div><div class="line">    &#125;, <span class="literal">false</span>);</div><div class="line">    win.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (e.persisted) &#123;</div><div class="line">            clearTimeout(tid);</div><div class="line">            tid = setTimeout(recalc, <span class="number">300</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;, <span class="literal">false</span>);</div><div class="line"></div><div class="line"></div><div class="line">    doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        tid = setTimeout(recalc, <span class="number">0</span>);</div><div class="line">    &#125;, <span class="literal">false</span>);</div><div class="line"></div><div class="line">    recalc();</div><div class="line"></div><div class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</div></pre></td></tr></table></figure>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">如果有一天我说想你了，不是说这天我想你了，是说这天我忍不住了。</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> css </tag>
-            
-            <tag> html </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[ES6]]></title>
-      <url>/2017/07/14/2017-7-14-es6_1/</url>
-      <content type="html"><![CDATA[<h2 id="es6学习笔记-上"><a href="#es6学习笔记-上" class="headerlink" title="es6学习笔记(上)"></a>es6学习笔记(上)</h2><p>es8已经出来了，是时候开始学习es6了。</p>
+    <summary type="html">
+    
+      &lt;p&gt;响应式设计：能够根据视口变化控制页面文档流，简单的来说就是针对任意设备对网页内容进行完美布局的一种显示机制。&lt;br&gt;媒体查询：在不改变页面内容的情况下，为特定的一些输出设备定制显示效果。&lt;/p&gt;
+&lt;h3 id=&quot;视口与屏幕尺寸&quot;&gt;&lt;a href=&quot;#视口与屏幕尺寸&quot; cla
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://zlstory.com/tags/css/"/>
+    
+      <category term="html" scheme="http://zlstory.com/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6</title>
+    <link href="http://zlstory.com/2017/07/14/2017-7-14-es6_1/"/>
+    <id>http://zlstory.com/2017/07/14/2017-7-14-es6_1/</id>
+    <published>2017-07-13T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.959Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="es6学习笔记-上"><a href="#es6学习笔记-上" class="headerlink" title="es6学习笔记(上)"></a>es6学习笔记(上)</h2><p>es8已经出来了，是时候开始学习es6了。</p>
 <p>ES6从2010年开始到2015年正式通过，过了15年。</p>
 <p>环境要求：node</p>
 <p>检验运行环境对ES6的支持情况：<br>    npm install -g es-checker<br>    es-checker</p>
@@ -122,22 +152,29 @@
 <h4 id="map、set与Object的对比"><a href="#map、set与Object的对比" class="headerlink" title="map、set与Object的对比"></a>map、set与Object的对比</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> item = &#123;<span class="attr">t</span>:<span class="number">1</span>&#125;;</div><div class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">    <span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">//增</span></div><div class="line">    map.set(<span class="string">'t'</span>,<span class="number">1</span>);</div><div class="line">    set.add(item);</div><div class="line">    obj[<span class="string">'t'</span>] = <span class="number">1</span>;</div><div class="line">    <span class="built_in">console</span>.log(obj,map,set);</div><div class="line"></div><div class="line">    <span class="comment">//查</span></div><div class="line">    <span class="built_in">console</span>.info(&#123;</div><div class="line">        map_exist:map.has(<span class="string">'t'</span>),</div><div class="line">        set_exist:set.has(item),</div><div class="line">        obj_exist:<span class="string">'t'</span> <span class="keyword">in</span> obj</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="comment">//改</span></div><div class="line">    map.set(<span class="string">'t'</span>,<span class="number">2</span>);</div><div class="line">    item.t = <span class="number">2</span>;</div><div class="line">    obj[<span class="string">'t'</span>] =<span class="number">2</span>;</div><div class="line">    <span class="built_in">console</span>.log(obj,map,set);</div><div class="line"></div><div class="line">    <span class="comment">//删</span></div><div class="line">    map.delete(<span class="string">'t'</span>);</div><div class="line">    set.delete(item);</div><div class="line">    <span class="keyword">delete</span> obj[<span class="string">"t"</span>];</div><div class="line">    <span class="built_in">console</span>.log(obj,map,set);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">遇见你之后，我只想日子过得慢一点，再慢一点。</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> javaScript </tag>
-            
-            <tag> es6 </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[ES6]]></title>
-      <url>/2017/07/14/2017-7-18-es6_2/</url>
-      <content type="html"><![CDATA[<h2 id="es6学习笔记-下"><a href="#es6学习笔记-下" class="headerlink" title="es6学习笔记(下)"></a>es6学习笔记(下)</h2><h3 id="Proxy（代理）和Reflect（反射）的概念"><a href="#Proxy（代理）和Reflect（反射）的概念" class="headerlink" title="Proxy（代理）和Reflect（反射）的概念"></a>Proxy（代理）和Reflect（反射）的概念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> obj = &#123;</div><div class="line">        time:<span class="string">'2017-7-18'</span>,</div><div class="line">        name:<span class="string">'Crystal'</span>,</div><div class="line">        _r:<span class="number">123</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">let</span> monitor = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj,&#123;</div><div class="line">        <span class="comment">//拦截对象属性的读取</span></div><div class="line">        get(target,key)&#123;</div><div class="line">            <span class="keyword">return</span> target[key].replace(<span class="string">'2017'</span>,<span class="string">'2018'</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//拦截对象属性的设置</span></div><div class="line">        set(target,key,value)&#123;</div><div class="line">            <span class="comment">//只允许修改name属性</span></div><div class="line">            <span class="keyword">if</span>(key === <span class="string">"name"</span>)&#123;</div><div class="line">                <span class="keyword">return</span> target[key] = value;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> target[key];</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//判断当前对象中是否有某属性</span></div><div class="line">        has(target,key,value)&#123;</div><div class="line">            <span class="keyword">if</span>(key === <span class="string">'name'</span>)&#123;</div><div class="line">                <span class="keyword">return</span> target [key];</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//删除</span></div><div class="line">        deleteProperty(target,key)&#123;</div><div class="line">            <span class="keyword">if</span>(key.indexOf(<span class="string">"_"</span>)&gt;<span class="number">-1</span>)&#123;</div><div class="line">                <span class="keyword">delete</span> target[key];</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> target[key];</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//拦截object.keys、object.getOwnPropertySymbols、object.getOwnPropertyNames</span></div><div class="line">        ownKeys(target)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">Object</span>.target(target).filter(<span class="function"><span class="params">item</span> =&gt;</span> item != <span class="string">"time"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="built_in">console</span>.log(monitor.time);<span class="comment">//2018-7-18</span></div><div class="line">    monitor.time = <span class="string">"2018"</span>;</div><div class="line">    <span class="built_in">console</span>.log( monitor.time);<span class="comment">//2018-7-18(无修改)</span></div><div class="line">    monitor.name = <span class="string">"Sinsle"</span>;</div><div class="line">    <span class="built_in">console</span>.log(monitor.name);<span class="comment">//Sinsle(已修改)</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"name"</span> <span class="keyword">in</span> monitor,<span class="string">"time"</span> <span class="keyword">in</span> monitor);</div><div class="line"></div><div class="line">    <span class="keyword">delete</span> monitor.time;</div><div class="line">    <span class="built_in">console</span>.log(monitor);<span class="comment">//没有删除time</span></div><div class="line"></div><div class="line">    <span class="keyword">delete</span> monitor._r;</div><div class="line">    <span class="built_in">console</span>.log(monitor);<span class="comment">//删除_r属性</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'ownkeys'</span>,<span class="built_in">Object</span>.keys(monitor));</div><div class="line">    </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;   <span class="comment">//Reflect的方法与属性和Proxy相同</span></div><div class="line">     <span class="keyword">let</span> obj = &#123;</div><div class="line">        time:<span class="string">'2017-7-18'</span>,</div><div class="line">        name:<span class="string">'Crystal'</span>,</div><div class="line">        _r:<span class="number">123</span></div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.get(obj,<span class="string">"time"</span>));<span class="comment">//2017-7-18</span></div><div class="line">    <span class="built_in">Reflect</span>.set(obj,<span class="string">"name"</span>,<span class="string">"sinsle"</span>);</div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.has(obj,<span class="string">"name"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;es6学习笔记-上&quot;&gt;&lt;a href=&quot;#es6学习笔记-上&quot; class=&quot;headerlink&quot; title=&quot;es6学习笔记(上)&quot;&gt;&lt;/a&gt;es6学习笔记(上)&lt;/h2&gt;&lt;p&gt;es8已经出来了，是时候开始学习es6了。&lt;/p&gt;
+&lt;p&gt;ES6从2010年开始
+    
+    </summary>
+    
+    
+      <category term="javaScript" scheme="http://zlstory.com/tags/javaScript/"/>
+    
+      <category term="es6" scheme="http://zlstory.com/tags/es6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6</title>
+    <link href="http://zlstory.com/2017/07/14/2017-7-18-es6_2/"/>
+    <id>http://zlstory.com/2017/07/14/2017-7-18-es6_2/</id>
+    <published>2017-07-13T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.962Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="es6学习笔记-下"><a href="#es6学习笔记-下" class="headerlink" title="es6学习笔记(下)"></a>es6学习笔记(下)</h2><h3 id="Proxy（代理）和Reflect（反射）的概念"><a href="#Proxy（代理）和Reflect（反射）的概念" class="headerlink" title="Proxy（代理）和Reflect（反射）的概念"></a>Proxy（代理）和Reflect（反射）的概念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> obj = &#123;</div><div class="line">        time:<span class="string">'2017-7-18'</span>,</div><div class="line">        name:<span class="string">'Crystal'</span>,</div><div class="line">        _r:<span class="number">123</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">let</span> monitor = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj,&#123;</div><div class="line">        <span class="comment">//拦截对象属性的读取</span></div><div class="line">        get(target,key)&#123;</div><div class="line">            <span class="keyword">return</span> target[key].replace(<span class="string">'2017'</span>,<span class="string">'2018'</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//拦截对象属性的设置</span></div><div class="line">        set(target,key,value)&#123;</div><div class="line">            <span class="comment">//只允许修改name属性</span></div><div class="line">            <span class="keyword">if</span>(key === <span class="string">"name"</span>)&#123;</div><div class="line">                <span class="keyword">return</span> target[key] = value;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> target[key];</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//判断当前对象中是否有某属性</span></div><div class="line">        has(target,key,value)&#123;</div><div class="line">            <span class="keyword">if</span>(key === <span class="string">'name'</span>)&#123;</div><div class="line">                <span class="keyword">return</span> target [key];</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//删除</span></div><div class="line">        deleteProperty(target,key)&#123;</div><div class="line">            <span class="keyword">if</span>(key.indexOf(<span class="string">"_"</span>)&gt;<span class="number">-1</span>)&#123;</div><div class="line">                <span class="keyword">delete</span> target[key];</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> target[key];</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//拦截object.keys、object.getOwnPropertySymbols、object.getOwnPropertyNames</span></div><div class="line">        ownKeys(target)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">Object</span>.target(target).filter(<span class="function"><span class="params">item</span> =&gt;</span> item != <span class="string">"time"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="built_in">console</span>.log(monitor.time);<span class="comment">//2018-7-18</span></div><div class="line">    monitor.time = <span class="string">"2018"</span>;</div><div class="line">    <span class="built_in">console</span>.log( monitor.time);<span class="comment">//2018-7-18(无修改)</span></div><div class="line">    monitor.name = <span class="string">"Sinsle"</span>;</div><div class="line">    <span class="built_in">console</span>.log(monitor.name);<span class="comment">//Sinsle(已修改)</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"name"</span> <span class="keyword">in</span> monitor,<span class="string">"time"</span> <span class="keyword">in</span> monitor);</div><div class="line"></div><div class="line">    <span class="keyword">delete</span> monitor.time;</div><div class="line">    <span class="built_in">console</span>.log(monitor);<span class="comment">//没有删除time</span></div><div class="line"></div><div class="line">    <span class="keyword">delete</span> monitor._r;</div><div class="line">    <span class="built_in">console</span>.log(monitor);<span class="comment">//删除_r属性</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'ownkeys'</span>,<span class="built_in">Object</span>.keys(monitor));</div><div class="line">    </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;   <span class="comment">//Reflect的方法与属性和Proxy相同</span></div><div class="line">     <span class="keyword">let</span> obj = &#123;</div><div class="line">        time:<span class="string">'2017-7-18'</span>,</div><div class="line">        name:<span class="string">'Crystal'</span>,</div><div class="line">        _r:<span class="number">123</span></div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.get(obj,<span class="string">"time"</span>));<span class="comment">//2017-7-18</span></div><div class="line">    <span class="built_in">Reflect</span>.set(obj,<span class="string">"name"</span>,<span class="string">"sinsle"</span>);</div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.has(obj,<span class="string">"name"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Proxy和Reflect的适用场景"><a href="#Proxy和Reflect的适用场景" class="headerlink" title="Proxy和Reflect的适用场景"></a>Proxy和Reflect的适用场景</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">validator</span>(<span class="params">target,validator</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(target,&#123;</div><div class="line">            _validator:validator,</div><div class="line">            set(target,key,value,proxy)&#123;</div><div class="line">                <span class="keyword">if</span>(target.hasOwnProperty(key))&#123;</div><div class="line">                    <span class="keyword">let</span> val = <span class="keyword">this</span>._validator[key];</div><div class="line">                    <span class="keyword">if</span>(!!val(value))&#123;</div><div class="line">                        <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target,key,value,proxy)</div><div class="line">                    &#125;<span class="keyword">else</span>&#123;</div><div class="line">                        <span class="keyword">throw</span> <span class="built_in">Error</span> (<span class="string">`不能设置<span class="subst">$&#123;key&#125;</span>到<span class="subst">$&#123;value&#125;</span>`</span>)</div><div class="line">                    &#125;</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">`<span class="subst">$&#123;key&#125;</span> 不存在`</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> personValidator = &#123;</div><div class="line">        name(val)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">typeof</span> val === <span class="string">"string"</span>;</div><div class="line">        &#125;,</div><div class="line">        age(val) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">typeof</span> val === <span class="string">"number"</span> &amp;&amp; val &gt;=<span class="number">18</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">        <span class="keyword">constructor</span>(name,age)&#123;</div><div class="line">            <span class="keyword">this</span>.name = name;</div><div class="line">            <span class="keyword">this</span>.age = age;</div><div class="line">            <span class="keyword">return</span> validator(<span class="keyword">this</span>,personValidator);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">const</span> person = <span class="keyword">new</span> Person(<span class="string">"Crystal"</span>,<span class="number">23</span>);</div><div class="line">    <span class="built_in">console</span>.log(person);<span class="comment">//Proxy &#123;name: "Crystal", age: 23&#125;</span></div><div class="line"></div><div class="line">    person.name = <span class="number">48</span>;<span class="comment">//报错：不能设置name到48</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><p>基本定义与生成实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</div><div class="line">        <span class="keyword">constructor</span>(name = "crystal")&#123;</div><div class="line">            <span class="keyword">this</span>.name = name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> v_parent = <span class="keyword">new</span> Parent(<span class="string">'v'</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'构造函数和实例'</span>,v_parent);<span class="comment">//构造函数和实例 Parent &#123;name: "v"&#125;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</div><div class="line">        <span class="keyword">constructor</span>(name = "crystal")&#123;</div><div class="line">            <span class="keyword">this</span>.name = name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;       </div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"继承"</span>,<span class="keyword">new</span> Child());<span class="comment">//继承 Child &#123;name: "crystal"&#125;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">     <span class="comment">//子类传递给父类 super</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</div><div class="line">        <span class="keyword">constructor</span>(name = "crystal")&#123;</div><div class="line">            <span class="keyword">this</span>.name = name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;       </div><div class="line">        <span class="keyword">constructor</span>(name = "zilan")&#123;</div><div class="line">            <span class="keyword">super</span>(name);<span class="comment">//super需在第一行</span></div><div class="line">            <span class="keyword">this</span>.type = <span class="string">"child"</span>;<span class="comment">//定义自己属性时需要有this关键字，在super之后</span></div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"传递属性"</span>,<span class="keyword">new</span> Child());<span class="comment">//传递属性 Child &#123;name: "zilan", type: "child"&#125;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -159,22 +196,28 @@
 <h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h4 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h4><h4 id="ES6的模块化语法"><a href="#ES6的模块化语法" class="headerlink" title="ES6的模块化语法"></a>ES6的模块化语法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&#123;   <span class="comment">//A文件中导出</span></div><div class="line">    <span class="keyword">export</span> <span class="keyword">let</span> A = <span class="string">'123'</span>;</div><div class="line"></div><div class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"test"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span></span>&#123;</div><div class="line">        test()&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"class"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//导出的建议写法  更方便命名</span></div><div class="line">    <span class="keyword">let</span> A = <span class="number">123</span>;</div><div class="line">    <span class="keyword">let</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"class"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Hello</span></span>&#123;</div><div class="line">        test()&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"class"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    esport <span class="keyword">default</span>&#123;</div><div class="line">        A,</div><div class="line">        test,</div><div class="line">        Hello</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//用import导入</span></div><div class="line">    <span class="comment">//B文件中</span></div><div class="line">    <span class="keyword">import</span> &#123;A,test,Hello&#125; <span class="keyword">from</span> A</div><div class="line"></div><div class="line">    <span class="comment">//当文件很多的时候  导入小技巧</span></div><div class="line">    <span class="keyword">import</span> * <span class="keyword">as</span> lesson <span class="keyword">from</span> <span class="string">'A'</span>;</div><div class="line">    <span class="built_in">console</span>.log(lesson.A,lesson.test);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">真正的离开是不会有任何预警的。</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> javaScript </tag>
-            
-            <tag> es6 </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[React]]></title>
-      <url>/2017/07/10/2017-7-10-react1/</url>
-      <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-上"><a href="#React-Native之React速学教程-上" class="headerlink" title="React Native之React速学教程(上)"></a>React Native之React速学教程(上)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;es6学习笔记-下&quot;&gt;&lt;a href=&quot;#es6学习笔记-下&quot; class=&quot;headerlink&quot; title=&quot;es6学习笔记(下)&quot;&gt;&lt;/a&gt;es6学习笔记(下)&lt;/h2&gt;&lt;h3 id=&quot;Proxy（代理）和Reflect（反射）的概念&quot;&gt;&lt;a href=&quot;
+    
+    </summary>
+    
+    
+      <category term="javaScript" scheme="http://zlstory.com/tags/javaScript/"/>
+    
+      <category term="es6" scheme="http://zlstory.com/tags/es6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React</title>
+    <link href="http://zlstory.com/2017/07/10/2017-7-10-react1/"/>
+    <id>http://zlstory.com/2017/07/10/2017-7-10-react1/</id>
+    <published>2017-07-09T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.947Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-上"><a href="#React-Native之React速学教程-上" class="headerlink" title="React Native之React速学教程(上)"></a>React Native之React速学教程(上)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
 <p></p><p style="font-size:12px;color:red;">非我原创，原创作者也不知道是谁，放在页面上方便学习</p><br>React Native是基于React的，在开发React Native过程中少不了的需要用到React方面的知识。虽然官方也有相应的Document，但篇幅比较多，学起来比较枯燥。<br>通过《React Native之React速学教程》你可以对React有更系统和更深入的认识。为了方便大家学习，我将《React Native之React速学教程》分为上、中、下三篇，大家可以根据需要进行阅读学习。  <p></p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇为《React Native之React速学教程》的第一篇。本篇将从React的特点、如何使用React、JSX语法、组件(Component）以及组件的属性，状态等方面进行讲解。  </p>
 <h2 id="What’s-React"><a href="#What’s-React" class="headerlink" title="What’s React"></a>What’s React</h2><p>React是一个用于组建用户界面的JavaScript库，让你以更简单的方式来创建交互式用户界面。    </p>
@@ -269,20 +312,26 @@
 </blockquote>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://facebook.github.io/react/" target="_blank" rel="external">React’s official site</a><br><a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus" target="_blank" rel="external">React on ES6+</a></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> react </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[React]]></title>
-      <url>/2017/07/10/2017-7-10-react2/</url>
-      <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-中"><a href="#React-Native之React速学教程-中" class="headerlink" title="React Native之React速学教程(中)"></a>React Native之React速学教程(中)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Native之React速学教程-上&quot;&gt;&lt;a href=&quot;#React-Native之React速学教程-上&quot; class=&quot;headerlink&quot; title=&quot;React Native之React速学教程(上)&quot;&gt;&lt;/a&gt;React Native之
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://zlstory.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React</title>
+    <link href="http://zlstory.com/2017/07/10/2017-7-10-react2/"/>
+    <id>http://zlstory.com/2017/07/10/2017-7-10-react2/</id>
+    <published>2017-07-09T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.951Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-中"><a href="#React-Native之React速学教程-中" class="headerlink" title="React Native之React速学教程(中)"></a>React Native之React速学教程(中)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
 <p style="font-size:12px;color:red;">非我原创，原创作者也不知道是谁，放在页面上方便学习</p>
 
 <p>React Native是基于React的，在开发React Native过程中少不了的需要用到React方面的知识。虽然官方也有相应的Document，但篇幅比较多，学起来比较枯燥。<br>通过《React Native之React速学教程》你可以对React有更系统和更深入的认识。为了方便大家学习，我将《React Native之React速学教程》分为上中、下三篇，大家可以根据需要进行阅读学习。  </p>
@@ -376,20 +425,26 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> makeCancelable = <span class="function">(<span class="params">promise</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> hasCanceled_ = <span class="literal">false</span>;</div><div class="line">  <span class="keyword">const</span> wrappedPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    promise.then(<span class="function">(<span class="params">val</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : resolve(val)</div><div class="line">    );</div><div class="line">    promise.catch(<span class="function">(<span class="params">error</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : reject(error)</div><div class="line">    );</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    promise: wrappedPromise,</div><div class="line">    cancel() &#123;</div><div class="line">      hasCanceled_ = <span class="literal">true</span>;</div><div class="line">    &#125;,</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://facebook.github.io/react/" target="_blank" rel="external">React’s official site</a><br><a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus" target="_blank" rel="external">React on ES6+</a></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> react </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[React]]></title>
-      <url>/2017/07/10/2017-7-10-react3/</url>
-      <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-下"><a href="#React-Native之React速学教程-下" class="headerlink" title="React Native之React速学教程(下)"></a>React Native之React速学教程(下)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Native之React速学教程-中&quot;&gt;&lt;a href=&quot;#React-Native之React速学教程-中&quot; class=&quot;headerlink&quot; title=&quot;React Native之React速学教程(中)&quot;&gt;&lt;/a&gt;React Native之
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://zlstory.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React</title>
+    <link href="http://zlstory.com/2017/07/10/2017-7-10-react3/"/>
+    <id>http://zlstory.com/2017/07/10/2017-7-10-react3/</id>
+    <published>2017-07-09T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.955Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-下"><a href="#React-Native之React速学教程-下" class="headerlink" title="React Native之React速学教程(下)"></a>React Native之React速学教程(下)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
 <p style="font-size:12px;color:red;">非我原创，原创作者也不知道是谁，放在页面上方便学习</p>
 
 <p>React Native是基于React的，在开发React Native过程中少不了的需要用到React方面的知识。虽然官方也有相应的Document，但篇幅比较多，学起来比较枯燥。<br>通过《React Native之React速学教程》你可以对React有更系统和更深入的认识。为了方便大家学习，我将《React Native之React速学教程》分为上、中、下三篇，大家可以根据需要进行阅读学习。  </p>
@@ -535,20 +590,26 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PostInfo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</div><div class="line">    handleOptionsButtonClick(e)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">showOptionsModal</span>: <span class="literal">true</span>&#125;);</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;TouchableHighlight </div><div class="line">                onPress=&#123;<span class="keyword">this</span>.handleOptionsButtonClick.bind(<span class="keyword">this</span>)&#125;</div><div class="line">                <span class="comment">//onPress=&#123;e=&gt;this.handleOptionsButtonClick(e)&#125;//这种方式和上面的效果是一样的</span></div><div class="line">                &gt;</div><div class="line">                &lt;Text&gt;&#123;<span class="keyword">this</span>.props.label&#125;&lt;<span class="regexp">/Text&gt;</span></div><div class="line"><span class="regexp">            &lt;/</span>TouchableHighlight&gt;</div><div class="line">        )</div><div class="line">    &#125;,·</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://facebook.github.io/react/" target="_blank" rel="external">React’s official site</a><br><a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus" target="_blank" rel="external">React on ES6+</a></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> react </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[JSON]]></title>
-      <url>/2017/07/05/2017-7-05-JSON/</url>
-      <content type="html"><![CDATA[<h2 id="JSON的两种方法小记"><a href="#JSON的两种方法小记" class="headerlink" title="JSON的两种方法小记"></a>JSON的两种方法小记</h2><h3 id="JSON简介"><a href="#JSON简介" class="headerlink" title="JSON简介"></a>JSON简介</h3><p>JSON的全称是：JavaScript Object Notation，意思是JavaScript对象表示法，是一种轻量级的数据交换格式。JSON的语法是JavaScript语法的子集，与js中对象和数组的语法十分相近。</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Native之React速学教程-下&quot;&gt;&lt;a href=&quot;#React-Native之React速学教程-下&quot; class=&quot;headerlink&quot; title=&quot;React Native之React速学教程(下)&quot;&gt;&lt;/a&gt;React Native之
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://zlstory.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSON</title>
+    <link href="http://zlstory.com/2017/07/05/2017-7-05-JSON/"/>
+    <id>http://zlstory.com/2017/07/05/2017-7-05-JSON/</id>
+    <published>2017-07-04T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.944Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JSON的两种方法小记"><a href="#JSON的两种方法小记" class="headerlink" title="JSON的两种方法小记"></a>JSON的两种方法小记</h2><h3 id="JSON简介"><a href="#JSON简介" class="headerlink" title="JSON简介"></a>JSON简介</h3><p>JSON的全称是：JavaScript Object Notation，意思是JavaScript对象表示法，是一种轻量级的数据交换格式。JSON的语法是JavaScript语法的子集，与js中对象和数组的语法十分相近。</p>
 <p>JSON是一种数据序列化格式，基于JavaScript的直接量，可以表示null、Boolean、Number、String、array以及Object对象。</p>
 <p>JSON里不可以表示undefined、NaN与Infinity、函数、日期以及正则。</p>
 <p>在JSON中，有两种结构：数组与对象</p>
@@ -561,22 +622,28 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">o = &#123;<span class="string">"info"</span>:[&#123;</div><div class="line">        <span class="string">"t"</span>: <span class="string">"兰蔻根源补养气色水凝乳液15ml*2"</span>,</div><div class="line">        <span class="string">"pcp"</span>: <span class="string">"48"</span>,</div><div class="line">        <span class="string">"img"</span>: <span class="string">"img/pic0.jpg"</span>,</div><div class="line">        <span class="string">"sid"</span>: <span class="string">"1"</span></div><div class="line">    &#125;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="built_in">JSON</span>.stringify(o);  <span class="comment">//转换成字符串</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);</div><div class="line"><span class="comment">//&#123;"info":[&#123;"t":"兰蔻根源补养气色水凝乳液15ml*2","pcp":"48","img":"img/pic0.jpg","sid":"1"&#125;]&#125;</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> b = <span class="built_in">JSON</span>.parse(a);  <span class="comment">//还原成对象</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(b);</div><div class="line"><span class="comment">//&#123;"info":[&#123;</span></div><div class="line"><span class="comment">//       "t": "兰蔻根源补养气色水凝乳液15ml*2",</span></div><div class="line"><span class="comment">//        "pcp": "48",</span></div><div class="line"><span class="comment">//        "img": "img/pic0.jpg",</span></div><div class="line"><span class="comment">//        "sid": "1"</span></div><div class="line"><span class="comment">//    &#125;]</span></div><div class="line"><span class="comment">//&#125;;</span></div></pre></td></tr></table></figure>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">我很忙，但一直对你有空</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> javaScript </tag>
-            
-            <tag> JSON </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[常用代码片段]]></title>
-      <url>/2017/07/03/2017-7-03-javascript%20demo/</url>
-      <content type="html"><![CDATA[<h2 id="常用js代码片段整理"><a href="#常用js代码片段整理" class="headerlink" title="常用js代码片段整理"></a>常用js代码片段整理</h2><p>收集了一些在项目中遇见的一些实用代码片段，以便加快开发速度，提高工作效率。将持续更新</p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;JSON的两种方法小记&quot;&gt;&lt;a href=&quot;#JSON的两种方法小记&quot; class=&quot;headerlink&quot; title=&quot;JSON的两种方法小记&quot;&gt;&lt;/a&gt;JSON的两种方法小记&lt;/h2&gt;&lt;h3 id=&quot;JSON简介&quot;&gt;&lt;a href=&quot;#JSON简介&quot; cla
+    
+    </summary>
+    
+    
+      <category term="javaScript" scheme="http://zlstory.com/tags/javaScript/"/>
+    
+      <category term="JSON" scheme="http://zlstory.com/tags/JSON/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用代码片段</title>
+    <link href="http://zlstory.com/2017/07/03/2017-7-03-javascript%20demo/"/>
+    <id>http://zlstory.com/2017/07/03/2017-7-03-javascript demo/</id>
+    <published>2017-07-02T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.940Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常用js代码片段整理"><a href="#常用js代码片段整理" class="headerlink" title="常用js代码片段整理"></a>常用js代码片段整理</h2><p>收集了一些在项目中遇见的一些实用代码片段，以便加快开发速度，提高工作效率。将持续更新</p>
 <h3 id="全选操作"><a href="#全选操作" class="headerlink" title="全选操作"></a>全选操作</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAll</span> (<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> selectall = documnent.getElementById(<span class="string">"selectall"</span>);</div><div class="line">    <span class="keyword">var</span> allbox = <span class="built_in">document</span>.getElementsByName(<span class="string">"allbox"</span>);</div><div class="line">    <span class="keyword">if</span>(selectall.checked)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; allbox.length; i++)&#123;</div><div class="line">            allbox[i].checked = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; allbox.length; i++)&#123;</div><div class="line">            allbox[i].checked = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="tab效果"><a href="#tab效果" class="headerlink" title="tab效果"></a>tab效果</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Change</span>(<span class="params">btn, active, div</span>) </span>&#123;</div><div class="line">    $(btn).mouseover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $(<span class="keyword">this</span>).addClass(active).siblings(<span class="string">'li'</span>).removeClass(active);</div><div class="line">        $(div).eq($(<span class="keyword">this</span>).index()).css(<span class="string">'display'</span>, <span class="string">'block'</span>).siblings().css(<span class="string">'display'</span>, <span class="string">'none'</span>)</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="禁止页面右键菜单"><a href="#禁止页面右键菜单" class="headerlink" title="禁止页面右键菜单"></a>禁止页面右键菜单</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(docunment).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="built_in">document</span>).bind(<span class="string">"contextmenu"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -596,22 +663,28 @@
 <h3 id="窗体改变事件"><a href="#窗体改变事件" class="headerlink" title="窗体改变事件"></a>窗体改变事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> w = <span class="built_in">document</span>.documentElement ? <span class="built_in">document</span>.documentElement.clientWidth : documnent.body.clientWidth,</div><div class="line">            r = <span class="number">1255</span>,</div><div class="line">            b = Element.extend(<span class="built_in">document</span>.body),</div><div class="line">            classname = b.className;</div><div class="line">        <span class="keyword">if</span>(w &lt; r)&#123;</div><div class="line">            <span class="comment">//当窗体的宽度小于1255的时候执行相应操作</span></div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">//当窗体的宽度大于1255的时候执行相应操作</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener)&#123;</div><div class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            fn();</div><div class="line">        &#125;)</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'onresize'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            fn();</div><div class="line">        &#125;) </div><div class="line">    &#125;</div><div class="line">    fn();</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">相遇的那一刻，就有了即将要分离的预感</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> jQuery </tag>
-            
-            <tag> javaScript </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[selector]]></title>
-      <url>/2017/06/29/2017-6-29-selector/</url>
-      <content type="html"><![CDATA[<h2 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h2><p>在css中，选择器是一种模式，用来实现对html页面中的元素实现一对一，一对多或者多对一的控制。</p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;常用js代码片段整理&quot;&gt;&lt;a href=&quot;#常用js代码片段整理&quot; class=&quot;headerlink&quot; title=&quot;常用js代码片段整理&quot;&gt;&lt;/a&gt;常用js代码片段整理&lt;/h2&gt;&lt;p&gt;收集了一些在项目中遇见的一些实用代码片段，以便加快开发速度，提高工作效率。将
+    
+    </summary>
+    
+    
+      <category term="jQuery" scheme="http://zlstory.com/tags/jQuery/"/>
+    
+      <category term="javaScript" scheme="http://zlstory.com/tags/javaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>selector</title>
+    <link href="http://zlstory.com/2017/06/29/2017-6-29-selector/"/>
+    <id>http://zlstory.com/2017/06/29/2017-6-29-selector/</id>
+    <published>2017-06-28T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.936Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h2><p>在css中，选择器是一种模式，用来实现对html页面中的元素实现一对一，一对多或者多对一的控制。</p>
 <h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><p>1.通用选择器  *</p>
 <p>2.class选择器</p>
 <p>3.id选择器</p>
@@ -764,24 +837,31 @@
 </ol>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">想戴上最美的面具，又想卸下所有的伪装</p><br><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> jQuery </tag>
-            
-            <tag> css </tag>
-            
-            <tag> 选择器 </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[Array]]></title>
-      <url>/2017/06/22/array%20/</url>
-      <content type="html"><![CDATA[<h3 id="创建数组的两种方式"><a href="#创建数组的两种方式" class="headerlink" title="创建数组的两种方式"></a>创建数组的两种方式</h3><p>1.调用构造函数Array()</p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;css选择器&quot;&gt;&lt;a href=&quot;#css选择器&quot; class=&quot;headerlink&quot; title=&quot;css选择器&quot;&gt;&lt;/a&gt;css选择器&lt;/h2&gt;&lt;p&gt;在css中，选择器是一种模式，用来实现对html页面中的元素实现一对一，一对多或者多对一的控制。&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="jQuery" scheme="http://zlstory.com/tags/jQuery/"/>
+    
+      <category term="css" scheme="http://zlstory.com/tags/css/"/>
+    
+      <category term="选择器" scheme="http://zlstory.com/tags/%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Array</title>
+    <link href="http://zlstory.com/2017/06/22/array%20/"/>
+    <id>http://zlstory.com/2017/06/22/array /</id>
+    <published>2017-06-21T16:00:00.000Z</published>
+    <updated>2017-08-12T03:10:04.970Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="创建数组的两种方式"><a href="#创建数组的两种方式" class="headerlink" title="创建数组的两种方式"></a>创建数组的两种方式</h3><p>1.调用构造函数Array()</p>
 <p>(1)调用时没有参数,即创建一个空数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</div></pre></td></tr></table></figure></p>
 <p>(2)调用时有一个参数且为数字，该数字表示数组长度。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</div></pre></td></tr></table></figure></p>
 <p>(3)调用时有一个或多个非数值元素、数组元素为参数，此时参数即是该数组的元素。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr3 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"crystal"</span>,<span class="string">"zilan"</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure></p>
@@ -844,16 +924,17 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"><span class="keyword">var</span> arr1 = arr.indexOf(<span class="number">5</span>);  <span class="comment">//  4</span></div><div class="line"><span class="keyword">var</span> arr2 = arr.indexOf(<span class="number">8</span>);   <span class="comment">// -1</span></div><div class="line"><span class="keyword">var</span> arr3 = arr.lastIndexOf(<span class="number">5</span>);  <span class="comment">//  4</span></div><div class="line"><span class="keyword">var</span> arr4 = arr.lastIndexOf(<span class="number">9</span>);  <span class="comment">//  -1</span></div></pre></td></tr></table></figure>
 <p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">独学而无友，则孤陋且寡闻</p><p></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> Array </tag>
-            
-        </tags>
-        
-    </entry>
     
+    <summary type="html">
+    
+      &lt;h3 id=&quot;创建数组的两种方式&quot;&gt;&lt;a href=&quot;#创建数组的两种方式&quot; class=&quot;headerlink&quot; title=&quot;创建数组的两种方式&quot;&gt;&lt;/a&gt;创建数组的两种方式&lt;/h3&gt;&lt;p&gt;1.调用构造函数Array()&lt;/p&gt;
+&lt;p&gt;(1)调用时没有参数,即创建一个空数组
+    
+    </summary>
+    
+    
+      <category term="Array" scheme="http://zlstory.com/tags/Array/"/>
+    
+  </entry>
   
-  
-</search>
+</feed>
