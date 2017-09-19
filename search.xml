@@ -38,7 +38,7 @@
 <li>replace()方法：搜索和替换</li>
 </ol>
 <h4 id="eval"><a href="#eval" class="headerlink" title="eval()"></a>eval()</h4><p>eval在语句的上下文中解析他的参数，如果需要eval返回一个对象，需要用小括号将对象字面量括起来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span>(<span class="string">'&#123;foo:233&#125;'</span>);<span class="comment">//233</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'(&#123;foo:223&#125;)'</span>);<span class="comment">//&#123;foo:223&#125;</span></div></pre></td></tr></table></figure></p>
-<p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">我要是再漂亮一点，悄悄看你时，目光就不会闪躲了。</p><p></p>
+<p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">今天是一个悲伤的日子。</p><p></p>
 ]]></content>
       
         
@@ -108,9 +108,9 @@
         
         <tags>
             
-            <tag> html </tag>
-            
             <tag> css </tag>
+            
+            <tag> html </tag>
             
         </tags>
         
