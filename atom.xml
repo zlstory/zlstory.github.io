@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zlstory.com/"/>
-  <updated>2017-10-11T06:49:39.777Z</updated>
+  <updated>2017-10-26T09:16:52.473Z</updated>
   <id>http://zlstory.com/</id>
   
   <author>
@@ -14,6 +14,456 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript核心-ECMAScript</title>
+    <link href="http://zlstory.com/2017/10/26/js-basic/"/>
+    <id>http://zlstory.com/2017/10/26/js-basic/</id>
+    <published>2017-10-25T16:00:00.000Z</published>
+    <updated>2017-10-26T09:16:52.473Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="JavaScript的实现"><a href="#JavaScript的实现" class="headerlink" title="JavaScript的实现"></a>JavaScript的实现</h4><pre><code>一个完整的JavaScript的实现由三部分组成：ECMAScript(核心) + DOM(文档对象模型) + BOM(浏览器对象模型)。
+
+注意：虽然JavaScript和ECMAScript经常表达的是一个意思，但是JavaScript包含ECMAScript。
+</code></pre><h5 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h5><pre><code>ECMAScript与Web浏览器没有依赖关系，Web浏览器只是ECMAScript实现可能的宿主环境之一，其他宿主环境包括Node等。
+</code></pre><h5 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h5><pre><code>DOM是真对XML但经过扩展勇于HTML的应用编程接口(API)。
+</code></pre><ol>
+<li><p>DOM 1级组成：</p>
+<p> (1) DOM核心：规定如何映射基于XML的文档结构，以便简化对文档中任意部分的访问和操作。</p>
+<p> (2) DOM HTML：在DOM核心的基础上加以扩展，添加了对HTML的对象和方法。</p>
+</li>
+<li><p>DOM 2级组成：</p>
+<p> (1) DOM视图：定义了跟踪不同文档视图的接口</p>
+<p> (2) DOM事件： 定义了事件和事件处理的接口</p>
+<p> (3) DOM样式：定义了基于css为元素应用样式的接口</p>
+<p> (4) DOM遍历和范围：定义了遍历和操作文档树的接口</p>
+</li>
+<li><p>DOM 3级扩展：</p>
+<p> (1) 引入了统一方式加载和保存文档的方法：在DOM加载和保存模块中定义</p>
+<p> (2) 新增了验证文档的方法：在DOM验证模块中定义</p>
+<p> (3) 对DOM核心进行了扩展</p>
+</li>
+</ol>
+<h5 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM(浏览器对象模型)"></a>BOM(浏览器对象模型)</h5><ol>
+<li><p>弹出新浏览器窗口的功能</p>
+</li>
+<li><p>移动、缩放和关闭浏览器窗口的功能</p>
+</li>
+<li><p>提供浏览器详细信息的navigator对象</p>
+</li>
+<li><p>提供浏览器所加载页面的详细信息的location对象</p>
+</li>
+<li><p>提供用户显示器分辨率详细信息的screen对象</p>
+</li>
+<li><p>对cookies的支持</p>
+</li>
+</ol>
+<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><p>严格模式是为JavaScript定义了一种不同的解析与执行模型。在代码顶部(或函数里面的顶部)中加入：“use strict”，这个字符串实际上是一个编译指示，用于告诉支持的JavaScript引擎切换到严格模式。</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>基本数据类型：undefined、null、boolean、number、string</p>
+<p>复杂数据类型：object</p>
+<p>使用typeof操作符可检测给定变量的数据类型，返回值为：undefined、boolean、string、number、object、function。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>;<span class="comment">//object</span></div><div class="line"><span class="comment">//null是一个空对象指针，所以返回object</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> message = <span class="string">"123112"</span>;</div><div class="line"></div><div class="line"><span class="keyword">typeof</span> message;<span class="comment">//string</span></div></pre></td></tr></table></figure>
+<h5 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h5><p>undefined类型只有一个值：undefined</p>
+<p>变量使用var声明但是未复制，会出现undefined。</p>
+<p>若变量没有声明就使用，则会报错，并非undefined。</p>
+<h5 id="null"><a href="#null" class="headerlink" title="null"></a>null</h5><p>unll类型只有一个值：null，null == undefined</p>
+<h5 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h5><p>boolean有两个值：true、false,需注意：区分大小写。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th style="text-align:right">转换成true</th>
+<th style="text-align:center">转换成false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boolean</td>
+<td style="text-align:right">true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td>String</td>
+<td style="text-align:right">非空字符串</td>
+<td style="text-align:center">空字符串</td>
+</tr>
+<tr>
+<td>Number</td>
+<td style="text-align:right">非零数字值</td>
+<td style="text-align:center">0 和 NAN</td>
+</tr>
+<tr>
+<td>Object</td>
+<td style="text-align:right">任何对象</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td style="text-align:right">不适用</td>
+<td style="text-align:center">undefined</td>
+</tr>
+</tbody>
+</table>
+<h5 id="number"><a href="#number" class="headerlink" title="number"></a>number</h5><p>八进制：第一位必须是0，，后面是0-7，若超出范围，则以十进制解析。</p>
+<p>十六进制：前两位必须是0x，后面是0-9和A-F，字母大小写不限制。</p>
+<p>isFinite():判断一个数值是不是有穷的。</p>
+<p>isNaN()：判断一个数是不是NaN。NAN与任何值都不相等，包括本身。</p>
+<p>number():将任何数据类型转换成数值。</p>
+<p>paeseInt()和parseFloat()：将字符串转换成数值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="built_in">Number</span>(<span class="string">"hello"</span>);<span class="comment">//NaN</span></div><div class="line"><span class="keyword">var</span> num2 = <span class="built_in">Number</span>(<span class="string">""</span>);<span class="comment">//0</span></div><div class="line"><span class="keyword">var</span> num3 = <span class="built_in">Number</span>(<span class="string">"000011"</span>);<span class="comment">//11</span></div><div class="line"><span class="keyword">var</span> num4 = <span class="built_in">Number</span>(<span class="literal">true</span>);<span class="comment">//1</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseInt</span>(<span class="string">"1232hello"</span>);<span class="comment">//1232</span></div><div class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseInt</span>(<span class="string">""</span>);<span class="comment">//NaN</span></div><div class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseInt</span>(<span class="string">"0xA"</span>);<span class="comment">//10</span></div><div class="line"><span class="keyword">var</span> num4 = <span class="built_in">parseInt</span>(<span class="number">22.5</span>);<span class="comment">//22</span></div><div class="line"><span class="keyword">var</span> num5 = <span class="built_in">parseInt</span>(<span class="string">"070"</span>,<span class="number">8</span>);<span class="comment">//56</span></div><div class="line"><span class="keyword">var</span> num6 = <span class="built_in">parseInt</span>(<span class="string">"70"</span>);<span class="comment">//70</span></div></pre></td></tr></table></figure>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p>string类型由0或者多个16位Unicode字符组成的字符序列。由双引号或者单引号包含着，字符串一旦建立值就不可改变，除非销毁原来的值。</p>
+<p>toString():将number、Boolean、object、string转换成字符串</p>
+<p>默认情况下，toString()以十进制返回数值的字符串，参数可以为2、8、16表示二进制、八进制与十六进制。</p>
+<p>String():将任何类型转成字符串。如果值是null返回null，值是undefined返回undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">num.toString();<span class="comment">//"10"</span></div><div class="line">num.toString(<span class="number">2</span>);<span class="comment">//"1010"</span></div><div class="line">num.toString(<span class="number">8</span>);<span class="comment">//"12"</span></div><div class="line">num.toString(<span class="number">16</span>);<span class="comment">//"a"</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> val;</div><div class="line"><span class="built_in">String</span>(val);<span class="comment">//"undefined"</span></div><div class="line"><span class="built_in">String</span>(<span class="number">10</span>);<span class="comment">//10</span></div><div class="line"><span class="built_in">String</span>(<span class="literal">true</span>);<span class="comment">//"true"</span></div><div class="line"><span class="built_in">String</span>(<span class="literal">null</span>);<span class="comment">//"null"</span></div></pre></td></tr></table></figure>
+<h5 id="object"><a href="#object" class="headerlink" title="object"></a>object</h5><p>对象就是一组数据和功能的集合，可以通过执行new操作符来创建。object有属性和方法。</p>
+<p>constructor：保存着用于当前对象的函数。</p>
+<p>hasOwnProperty：检查给定属性是否存在于当前对象实例中。</p>
+<p>isPrototypeOf：用于检查传入的对象是否是当前对象的原型。</p>
+<p>propertyIsEnumerable：检查给定的属性是否能够for…in来循环遍历。</p>
+<p>toLocalString：返回对象的字符串表示，与执行环境的地区相对应。</p>
+<p>toString：返回对象的字符串表示。</p>
+<p>valueOf：返回对象的字符串、数值或者布尔值表示。</p>
+<h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><h5 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h5><ol>
+<li>递增递减操作符</li>
+</ol>
+<p>执行递增递减操作时，变量的值都是在语句被求值以前改变的(称为：副效应)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myAge  = <span class="number">23</span>;</div><div class="line"><span class="keyword">var</span> hisAge = --myAge + <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(myAge);<span class="comment">//22</span></div><div class="line"><span class="built_in">console</span>.log(hisAge);<span class="comment">//24</span></div></pre></td></tr></table></figure>
+<ol>
+<li>一元加和减操作符</li>
+</ol>
+<p>+放在数值前，对数值不产生影响。</p>
+<p>-放在数值前，值变为负数。</p>
+<p>对于不同的操作类型，会先转成数值类型，在进行操作<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str1 = <span class="string">"23"</span>;</div><div class="line"><span class="keyword">var</span> str2 = <span class="string">"23.2"</span>;</div><div class="line"><span class="keyword">var</span> str3 = <span class="string">"abc"</span>;</div><div class="line"><span class="keyword">var</span> bool = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> num1 = <span class="number">1.1</span>;</div><div class="line"><span class="keyword">var</span> func = &#123;</div><div class="line">    valueOf:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( +str1 );<span class="comment">//23</span></div><div class="line"><span class="built_in">console</span>.log( +str2 );<span class="comment">//23.2</span></div><div class="line"><span class="built_in">console</span>.log( +str3 );<span class="comment">//NaN</span></div><div class="line"><span class="built_in">console</span>.log( +bool );<span class="comment">//0</span></div><div class="line"><span class="built_in">console</span>.log( +num1 );<span class="comment">//1.1</span></div><div class="line"><span class="built_in">console</span>.log( +func );<span class="comment">//-1</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( -str1 );<span class="comment">//-23</span></div><div class="line"><span class="built_in">console</span>.log( -str2 );<span class="comment">//-23.2</span></div><div class="line"><span class="built_in">console</span>.log( -str3 );<span class="comment">//NaN</span></div><div class="line"><span class="built_in">console</span>.log( -bool );<span class="comment">//-0</span></div><div class="line"><span class="built_in">console</span>.log( -num1 );<span class="comment">//-1.1</span></div><div class="line"><span class="built_in">console</span>.log( -func );<span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li>位操作符</li>
+</ol>
+<p>位操作符不直接操作64位的值，而是先转成32位进行操作，再将值转换为64位。</p>
+<ul>
+<li><p>~ ：按位非(NOT)，结果返回数值的反码，与二进制有关，本质就是对原值取反-1。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">23</span>;</div><div class="line"><span class="keyword">var</span> num2 = <span class="number">-23</span>;</div><div class="line"><span class="keyword">var</span> str1 = <span class="string">"da"</span>;</div><div class="line"><span class="built_in">console</span>.log(~num1);<span class="comment">//-24</span></div><div class="line"><span class="built_in">console</span>.log(~num2);<span class="comment">//22</span></div><div class="line"><span class="built_in">console</span>.log(~str1);<span class="comment">//-1</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&amp;：按位与(AND)，当操作的两个数值都是1时，返回1，任何一位为0时，都返回0。</p>
+</li>
+<li><p>|：按位或(OR)，当操作的两个数值任何一位是1时，返回1，都为0时，都返回0。</p>
+</li>
+<li><p>^：按位异或(XOR)：当操作的两个数值对应位上只有一个1时返回1，如果对应两位都是1或者0，则返回0。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">23</span> &amp; <span class="number">25</span>;</div><div class="line"><span class="keyword">var</span> num2 = <span class="number">23</span> | <span class="number">25</span>;</div><div class="line"><span class="keyword">var</span> num3 = <span class="number">23</span> ^ <span class="number">25</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//17</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//31</span></div><div class="line"><span class="built_in">console</span>.log(num3);<span class="comment">//14</span></div><div class="line"></div><div class="line"><span class="comment">//都是操作二进制的数值。</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>&lt;&lt;：左移操作符</p>
+</li>
+<li><blockquote>
+<blockquote>
+<p>：右移操作符</p>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>：无符号右移</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">23</span>;</div><div class="line"><span class="keyword">var</span> num0 = <span class="number">-23</span>;</div><div class="line"><span class="keyword">var</span> num1 = num &lt;&lt; <span class="number">5</span>;</div><div class="line"><span class="keyword">var</span> num2 = num &gt;&gt; <span class="number">5</span>;</div><div class="line"><span class="keyword">var</span> num3 = num &gt;&gt;&gt; <span class="number">5</span>;</div><div class="line"><span class="keyword">var</span> num4 = num0 &gt;&gt;&gt; <span class="number">5</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//736</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//0</span></div><div class="line"><span class="built_in">console</span>.log(num3);<span class="comment">//0</span></div><div class="line"><span class="built_in">console</span>.log(num4);<span class="comment">//134217727</span></div><div class="line"></div><div class="line"><span class="comment">//又是操作二进制的数值。</span></div></pre></td></tr></table></figure>
+<h5 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h5><ol>
+<li>逻辑非！</li>
+</ol>
+<p>对任何数据类类型操作，先转换为布尔值，再对其求反。</p>
+<ol>
+<li>逻辑与&amp;&amp;</li>
+</ol>
+<p>可以返回null、undefined、NaN、布尔值等。</p>
+<ol>
+<li>逻辑或||</li>
+</ol>
+<h5 id="乘性操作符"><a href="#乘性操作符" class="headerlink" title="乘性操作符"></a>乘性操作符</h5><ol>
+<li><ul>
+<li>乘以</li>
+</ul>
+</li>
+<li><p>/除以</p>
+</li>
+</ol>
+<h5 id="加性操作符"><a href="#加性操作符" class="headerlink" title="加性操作符"></a>加性操作符</h5><ol>
+<li><p>+：若有字符串，则是连接作用。</p>
+</li>
+<li><p>-：若有字符串，先转换成数值，在进行减法操作。</p>
+</li>
+</ol>
+<h5 id="关系操作符"><a href="#关系操作符" class="headerlink" title="关系操作符"></a>关系操作符</h5><blockquote>
+<p>、&lt;、= 、&lt;= 、&gt;=</p>
+</blockquote>
+<h5 id="条件操作符-三目运算符"><a href="#条件操作符-三目运算符" class="headerlink" title="条件操作符(三目运算符)"></a>条件操作符(三目运算符)</h5><p> var max = (num1 &gt; num2) ? num1 : num2;</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>函数使用function 关键词来声明，通过函数可以封装任意多条语句，而且可以在任何地方任何时候调用执行。</p>
+<p>return：函数在执行完return语句之后退出，所以return之后的语句不会执行。</p>
+<p>函数的参数：ECMAScript中的参数在内部是一个参数数组来表示的，函数接收到的永远都是这个数组，而不关心数组中有没有参数。实际上，在函数体内可以使用arguments对象来访问参数数组。</p>
+<p>arguments：与数组类似，因为可以使用[]访问他的每一个元素，也可以用length来确定他有多少个参数，函数内部通过arguments可以改变函数参数（严格模式不可以）。</p>
+<h4 id="object类型"><a href="#object类型" class="headerlink" title="object类型"></a>object类型</h4><h5 id="2种创建方式"><a href="#2种创建方式" class="headerlink" title="2种创建方式"></a>2种创建方式</h5><ol>
+<li><p>使用new操作符后跟Object构造函数。</p>
+</li>
+<li><p>对象字面量表示</p>
+</li>
+</ol>
+<h5 id="2种访问对象属性的方法"><a href="#2种访问对象属性的方法" class="headerlink" title="2种访问对象属性的方法"></a>2种访问对象属性的方法</h5><ol>
+<li><p>点表示法(推荐使用)</p>
+</li>
+<li><p>[]表示法(需用字符串形式)</p>
+</li>
+</ol>
+<ul>
+<li>使用[]的优点 </li>
+</ul>
+<p>(1) 可以通过变量来访问属性</p>
+<p>(2) 属性名中包含关键字或者保留字</p>
+<p>(3) 属性中含有非字母非数字等导致语法错误的字符。</p>
+<h4 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h4><h5 id="2种创建方式-1"><a href="#2种创建方式-1" class="headerlink" title="2种创建方式"></a>2种创建方式</h5><ol>
+<li><p>使用new操作符后跟Array构造函数(new 操作符可省略)。</p>
+</li>
+<li><p>对象字面量表示</p>
+</li>
+</ol>
+<h5 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h5><ol>
+<li><p>instanceOf </p>
+</li>
+<li><p>Array.isArray()</p>
+</li>
+</ol>
+<h5 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:right">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转换方法</td>
+<td style="text-align:right">toLocalString() <br>toString()<br>valueOf()</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">将数组转换成字符串</td>
+<td style="text-align:center">返回数组的字符串格式</td>
+</tr>
+<tr>
+<td>栈方法</td>
+<td style="text-align:right">push() <br>pop()</td>
+<td style="text-align:center">任意数量的参数<br>无需传参</td>
+<td style="text-align:center">将参数添加到数组末尾<br>移除数组的最后一项</td>
+<td style="text-align:center">返回新数组的长度<br>被移除的那一项</td>
+</tr>
+<tr>
+<td>队列方法</td>
+<td style="text-align:right">unshift() <br>shift()</td>
+<td style="text-align:center">任意数量的参数<br>无需传参</td>
+<td style="text-align:center">将参数添加到数组最前端<br>移除数组的第一项</td>
+<td style="text-align:center">返回新数组的长度<br>被移除的那一项</td>
+</tr>
+<tr>
+<td>重排序方法</td>
+<td style="text-align:right">reverse() <br>sort()</td>
+<td style="text-align:center">无需传参<br>比较函数</td>
+<td style="text-align:center">反转数组的顺序<br>按照一定规则给数组排序</td>
+<td style="text-align:center">返回排序后的数组</td>
+</tr>
+<tr>
+<td>操作方法</td>
+<td style="text-align:right">concat() <br>slice()</td>
+<td style="text-align:center">值或数组<br>两或三个参数</td>
+<td style="text-align:center">基于当前数组的所有项创建一个新数组<br>删除(起始位置,结束位置)、插入(起始位置,删除个数,插入项)、替换(起始位置,删除个数,插入项)</td>
+<td style="text-align:center">返回操作后的新数组</td>
+</tr>
+<tr>
+<td>位置方法</td>
+<td style="text-align:right">indexOf() <br>lastIndexOf()</td>
+<td style="text-align:center">查找的内容,查找开始的位置</td>
+<td style="text-align:center">从前往后找<br>从后往前找</td>
+<td style="text-align:center">找不到返回-1，返回查找项在数组中的位置</td>
+</tr>
+<tr>
+<td>迭代方法</td>
+<td style="text-align:right">every() <br>filter() <br>forEach() <br>map() <br>some()</td>
+<td style="text-align:center">给定函数(数组的每一项都执行该函数)</td>
+<td style="text-align:center">该函数对数组每一项返回true，则返回true<br>返回值为true的数组<br>运行给定函数<br>函数调用后的结果组成的数组<br>任一项返回true，则返回true</td>
+<td style="text-align:center">true<br>数组<br>无返回值<br>数组<br>true</td>
+</tr>
+<tr>
+<td>归并方法</td>
+<td style="text-align:right">reduce() <br>reduceRight()</td>
+<td style="text-align:center">给定函数(函数参数：prev,cur,index,arr)，归并基础的初始值</td>
+<td style="text-align:center">从头开始遍历<br>从尾部开始遍历</td>
+<td style="text-align:center">迭代数组所有项，构建一个最终返回的值</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h4><h5 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h5><p>使用new操作符加Date构造函数：</p>
+<p>var now =  new Date()</p>
+<h5 id="Date方法"><a href="#Date方法" class="headerlink" title="Date方法"></a>Date方法</h5><ol>
+<li><p>Date.parse()：参数为字符串格式的日期(格式因地区而异)，返回值为对应日期的毫秒数。如果参数不规范，则返回NaN。</p>
+</li>
+<li><p>Date.UTC()：参数格式全部为数字，其中年月必须，返回值为对应日期的毫秒数。</p>
+</li>
+<li><p>Date.now()：返回表示调用这个方法时的日期和事件的毫秒数。可使用+操作符来获取Date对象的时间戳。</p>
+</li>
+<li><p>toLocalString()：返回与浏览器设置的地区相适应的格式返回日期与时间。</p>
+</li>
+<li><p>toString()：返回带有时区信息的日期与时间。</p>
+</li>
+<li><p>valueOf()：返回日期的毫秒表示，可以用来比较日期大小。</p>
+</li>
+</ol>
+<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><ol>
+<li><p>getTime():获取日期毫秒数</p>
+</li>
+<li><p>getFullYear(): 获取四位数的年份</p>
+</li>
+<li><p>getMonth()：获取月份</p>
+</li>
+<li><p>getDate()：获取月份中的天数</p>
+</li>
+<li><p>getDay()：获取星期几(0：星期日，6：星期六)</p>
+</li>
+<li><p>getHours()：获取小时(0-23)</p>
+</li>
+<li><p>getMinutes()：获取分钟(0-59)</p>
+</li>
+<li><p>getSeconds()：获取秒数(0-59)</p>
+</li>
+</ol>
+<ul>
+<li>注意：将get改为set，则可以设置对应的时间。</li>
+</ul>
+<h4 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h4><p>正则暂时不研究了，遇见就百度吧。</p>
+<h4 id="function类型"><a href="#function类型" class="headerlink" title="function类型"></a>function类型</h4><p>函数是对象，函数名是只想函数对象的指针。</p>
+<h5 id="创建方式-1"><a href="#创建方式-1" class="headerlink" title="创建方式"></a>创建方式</h5><ol>
+<li><p>使用函数声明语法：function Sum (){   }。可提前调用。</p>
+</li>
+<li><p>使用函数表达式定义函数：var sum = function(){    }。不可提前调用。</p>
+</li>
+<li><p>使用Function构造函数：var sum = new Function()。</p>
+</li>
+</ol>
+<h5 id="函数内部属性"><a href="#函数内部属性" class="headerlink" title="函数内部属性"></a>函数内部属性</h5><ol>
+<li>arguments：类数组对象，包含传入函数的所有参数。</li>
+</ol>
+<ul>
+<li>arguments有一个属性： callee，callee是 一个指向拥有arguments对象函数的指针，在函数内部中使用本函数时，可以使用arguments.callee()来代替。</li>
+</ul>
+<ol>
+<li><p>caller：函数对象的属性，保存着调用当前函数的函数的引用。A函数中调用B函数，则A.caller指向B函数。</p>
+</li>
+<li><p>length：函数的length表示函数希望接受的命名参数的个数。</p>
+</li>
+<li><p>prototype：保存所有的实例方法，且不可枚举，即不能使用for…in来遍历。</p>
+</li>
+</ol>
+<h5 id="函数方法"><a href="#函数方法" class="headerlink" title="函数方法"></a>函数方法</h5><ol>
+<li><p>apply()：在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。参数有两个：(函数的作用域,数组)，第二个参数也可以是arguments。</p>
+</li>
+<li><p>call()：与apply作用想同，改变this指向。有多个参数：(this,参数1，参数2…)。</p>
+</li>
+</ol>
+<ul>
+<li>apply()与call()真正作用：扩大函数赖以运行的作用域，好处就是对象不需要与方法有任何耦合关系。</li>
+</ul>
+<ol>
+<li>bind()：创建一个函数的实例。</li>
+</ol>
+<h4 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h4><h5 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:right">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符方法</td>
+<td style="text-align:right">charAt() <br>charCodeAt()</td>
+<td style="text-align:center">字符位置</td>
+<td style="text-align:center">用于访问字符串中特定的字符</td>
+<td style="text-align:center">返回给定位置的字符<br> 返回给定位置的字符的字符编码</td>
+</tr>
+<tr>
+<td>字符操作方法</td>
+<td style="text-align:right">concat()</td>
+<td style="text-align:center">字符串</td>
+<td style="text-align:center">拼接任意个数的字符串</td>
+<td style="text-align:center">返回新拼接的字符串</td>
+</tr>
+<tr>
+<td>字符操作方法</td>
+<td style="text-align:right">slice()<br>substr()<br>substring()</td>
+<td style="text-align:center">(开始位置,结束位置)<br>(开始位置，字符个数)<br>(开始位置,结束位置)</td>
+<td style="text-align:center">基于子字符串创建新的字符串</td>
+<td style="text-align:center">返回新的字符串 且不改变原字符串</td>
+</tr>
+<tr>
+<td>字符位置方法</td>
+<td style="text-align:right">indexOf()<br>lastIndexOf()</td>
+<td style="text-align:center">(给定子字符串，开始查找位置)</td>
+<td style="text-align:center">查找子字符串</td>
+<td style="text-align:center">返回-1或者子字符串第一次出现的位置</td>
+</tr>
+<tr>
+<td>删除空格</td>
+<td style="text-align:right">trim()</td>
+<td style="text-align:center">字符串</td>
+<td style="text-align:center">删除字符串前置以及后缀的所有空格</td>
+<td style="text-align:center">返回字符串副本</td>
+</tr>
+<tr>
+<td>大小写转换方法</td>
+<td style="text-align:right">toLowerCase()<br>toLocalLowerCase()<br>toUpperCase()<br>toLocalUpperCase()</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">实现字符串大小写转换</td>
+<td style="text-align:center">返回转换后的字符串</td>
+</tr>
+<tr>
+<td>模式匹配方法</td>
+<td style="text-align:right">match()<br>search()<br>replace()<br>split()</td>
+<td style="text-align:center">正则<br>正则<br>(正则或字符串,字符串或函数)<br>(分隔符,数组大小)</td>
+<td style="text-align:center">字符串中匹配模式的方法</td>
+<td style="text-align:center">返回数组<br>返回字符串中第一个匹配项的索引<br>返回新的字符串<br>返回数组</td>
+</tr>
+<tr>
+<td>比较字符串</td>
+<td style="text-align:right">localCompare()</td>
+<td style="text-align:center">需比较的字符串之一</td>
+<td style="text-align:center">按字母表顺序比较两个字符串</td>
+<td style="text-align:center">返回值-1、0、1</td>
+</tr>
+<tr>
+<td>静态方法</td>
+<td style="text-align:right">fromCharCode()</td>
+<td style="text-align:center">字符编码</td>
+<td style="text-align:center">字符编码</td>
+<td style="text-align:center">返回编码对应的字符串</td>
+</tr>
+</tbody>
+</table>
+<p></p><p style="color: rgb(114, 171, 200);font-size:14px;margin:14px;font-family:Arial">请允许我尘埃落定，用沉默埋葬了过去。</p><p></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;JavaScript的实现&quot;&gt;&lt;a href=&quot;#JavaScript的实现&quot; class=&quot;headerlink&quot; title=&quot;JavaScript的实现&quot;&gt;&lt;/a&gt;JavaScript的实现&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;一个完整的JavaScript的实现
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://zlstory.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>vue入门知识小结</title>
@@ -59,7 +509,7 @@
     <link href="http://zlstory.com/2017/09/09/JavaScript/"/>
     <id>http://zlstory.com/2017/09/09/JavaScript/</id>
     <published>2017-09-08T16:00:00.000Z</published>
-    <updated>2017-09-19T03:30:20.408Z</updated>
+    <updated>2017-10-26T09:16:22.303Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JavaScript与其他语言的关系"><a href="#JavaScript与其他语言的关系" class="headerlink" title="JavaScript与其他语言的关系"></a>JavaScript与其他语言的关系</h3><ul>
 <li>Java是JavaScript语法的参考模型，他同时影响JavaScript将值分为原始类型和对象类型，以及日期构造函数。(一直听说JavaScript与java没关系，现在发现还是有血缘关系的，而且es6之后增加了块级作用域等，更像java语法了)</li>
@@ -182,9 +632,9 @@
     </summary>
     
     
-      <category term="html" scheme="http://zlstory.com/tags/html/"/>
-    
       <category term="css" scheme="http://zlstory.com/tags/css/"/>
+    
+      <category term="html" scheme="http://zlstory.com/tags/html/"/>
     
   </entry>
   
@@ -417,120 +867,6 @@
   
   <entry>
     <title>React</title>
-    <link href="http://zlstory.com/2017/07/10/react1/"/>
-    <id>http://zlstory.com/2017/07/10/react1/</id>
-    <published>2017-07-09T16:00:00.000Z</published>
-    <updated>2017-08-24T10:12:21.738Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-上"><a href="#React-Native之React速学教程-上" class="headerlink" title="React Native之React速学教程(上)"></a>React Native之React速学教程(上)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
-<p></p><p style="font-size:12px;color:red;">非我原创，原创作者也不知道是谁，放在页面上方便学习</p><br>React Native是基于React的，在开发React Native过程中少不了的需要用到React方面的知识。虽然官方也有相应的Document，但篇幅比较多，学起来比较枯燥。<br>通过《React Native之React速学教程》你可以对React有更系统和更深入的认识。为了方便大家学习，我将《React Native之React速学教程》分为上、中、下三篇，大家可以根据需要进行阅读学习。  <p></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇为《React Native之React速学教程》的第一篇。本篇将从React的特点、如何使用React、JSX语法、组件(Component）以及组件的属性，状态等方面进行讲解。  </p>
-<h2 id="What’s-React"><a href="#What’s-React" class="headerlink" title="What’s React"></a>What’s React</h2><p>React是一个用于组建用户界面的JavaScript库，让你以更简单的方式来创建交互式用户界面。    </p>
-<ol>
-<li>当数据改变时，React将高效的更新和渲染需要更新的组件。声明性视图使你的代码更可预测，更容易调试。</li>
-<li>构建封装管理自己的状态的组件，然后将它们组装成复杂的用户界面。由于组件逻辑是用JavaScript编写的，而不是模板，所以你可以轻松地通过您的应用程序传递丰富的数据，并保持DOM状态。</li>
-<li>一次学习随处可写，学习React，你不仅可以将它用于Web开发，也可以用于React Native来开发Android和iOS应用。  </li>
-</ol>
-<p>不是模板却比模板更加灵活：  </p>
-<p><img src="https://raw.githubusercontent.com/crazycodeboy/RNStudyNotes/master/React%20Native%E4%B9%8BReact%E9%80%9F%E5%AD%A6%E6%95%99%E7%A8%8B/images/Component.jpg" alt="Component">  </p>
-<blockquote>
-<p>心得：上图是<a href="https://github.com/crazycodeboy/GitHubPopular" target="_blank" rel="external">GitHub Popular</a>的首页截图，这个页面是通过不同的组件组装而成的，组件化的开发模式，使得代码在更大程度上的到复用，而且组件之间对的组装很灵活。  </p>
-</blockquote>
-<h2 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h2><p>使用React之前需要在页面引入如下js库 。  </p>
-<ul>
-<li>react.js  </li>
-<li>react-dom.js  </li>
-<li>browser.min.js  </li>
-</ul>
-<p>上面一共列举了三个库： react.js 、react-dom.js 和 browser.min.js ，它们必须首先加载。其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，browser.min.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。<br>你可以从<a href="https://facebook.github.io/react/downloads.html" target="_blank" rel="external">React官网</a>下载这些库，也可以将其下载到本地去使用。 </p>
-<blockquote>
-<p>心得：在做React Native开发时，这些库作为React Native核心库已经被初始化在node_modules目录下，所以不需要单独下载。  </p>
-</blockquote>
-<h3 id="使用React"><a href="#使用React" class="headerlink" title="使用React"></a>使用React</h3><p>解压从上述地址下载的压缩包，在根目录中创建一个包含以下内容的 “helloworld.html” 。  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello React!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"build/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"build/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://npmcdn.com/babel-core@5.8.38/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">      ReactDOM.render(</span></div><div class="line"><span class="javascript">        &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,</span></div><div class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)</span></div><div class="line"><span class="undefined">      );</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>在 JavaScript 代码里写着 XML 格式的代码称为 JSX，下文会介绍。为了把 JSX 转成标准的 JavaScript，我们用<code>&lt;script type=&quot;text/babel&quot;&gt;</code>标签，然后通过Babel转换成在浏览器中真正执行的内容。  </p>
-<h3 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render()"></a>ReactDOM.render()</h3><p>ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div><div class="line">```  </div><div class="line">上述代码的作用是将`<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>`插入到元素id为example的容器中。   </div><div class="line"></div><div class="line"></div><div class="line">## JSX  </div><div class="line">JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。</div><div class="line">每一个XML标签都会被JSX转换工具转换成纯JavaScript代码，使用JSX，组件的结构和组件之间的关系看上去更加清晰。  </div><div class="line">JSX并不是React必须使用的，但React官方建议我们使用 JSX , 因为它能定义简洁且我们熟知的包含属性的树状结构语法。 </div><div class="line">    </div><div class="line"></div><div class="line">**Usage:**  </div><div class="line">  </div><div class="line">```html </div><div class="line">React.render(//使用JSX</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>,</div><div class="line">    document.getElementById('example')</div><div class="line">); </div><div class="line">React.render(//不使用JSX</div><div class="line">    React.createElement('div', null,</div><div class="line">        React.createElement('div', null,</div><div class="line">            React.createElement('div', null, 'content')</div><div class="line">        )</div><div class="line">    ),</div><div class="line">    document.getElementById('example')</div><div class="line">);</div><div class="line">```   </div><div class="line"></div><div class="line">### HTML标签 与 React组件 对比</div><div class="line"></div><div class="line">React 可以渲染 HTML 标签 (strings) 或 React 组件 (classes)。   </div><div class="line">要渲染 HTML 标签，只需在 JSX 里使用小写字母开头的标签名。</div><div class="line"></div><div class="line">```html </div><div class="line">var myDivElement = <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"foo"</span> /&gt;</span>;</div><div class="line">React.render(myDivElement, document.body);</div></pre></td></tr></table></figure></p>
-<p>要渲染 React 组件，只需创建一个大写字母开头的本地变量。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var MyComponent = React.createClass(&#123;/*...*/&#125;);</div><div class="line">var myElement = <span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">someProperty</span>=<span class="string">&#123;true&#125;</span> /&gt;</span>;</div><div class="line">React.render(myElement, document.body);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>提示：    </p>
-<ul>
-<li>React 的 JSX 里约定分别使用首字母大、小写来区分本地组件的类和 HTML 标签。    </li>
-<li>由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，  React DOM 使用 className 和 htmlFor 来做对应的属性。  </li>
-</ul>
-</blockquote>
-<h3 id="JavaScript-表达式"><a href="#JavaScript-表达式" class="headerlink" title="JavaScript 表达式"></a>JavaScript 表达式</h3><h4 id="属性表达式"><a href="#属性表达式" class="headerlink" title="属性表达式"></a>属性表达式</h4><p>要使用 JavaScript 表达式作为属性值，只需把这个表达式用一对大括号 ({}) 包起来，不要用引号 (“”)。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 输入 (JSX):</div><div class="line">var person = <span class="tag">&lt;<span class="name">Person</span> <span class="attr">name</span>=<span class="string">&#123;window.isLoggedIn</span> ? <span class="attr">window.name</span> <span class="attr">:</span> ''&#125; /&gt;</span>;</div><div class="line">// 输出 (JS):</div><div class="line">var person = React.createElement(</div><div class="line">  Person,</div><div class="line">  &#123;name: window.isLoggedIn ? window.name : ''&#125;</div><div class="line">);</div></pre></td></tr></table></figure>
-<h4 id="子节点表达式"><a href="#子节点表达式" class="headerlink" title="子节点表达式"></a>子节点表达式</h4><p>同样地，JavaScript 表达式可用于描述子结点：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 输入 (JSX):</div><div class="line">var content = <span class="tag">&lt;<span class="name">Container</span>&gt;</span>&#123;window.isLoggedIn ? <span class="tag">&lt;<span class="name">Nav</span> /&gt;</span> : <span class="tag">&lt;<span class="name">Login</span> /&gt;</span>&#125;<span class="tag">&lt;/<span class="name">Container</span>&gt;</span>;</div><div class="line">// 输出 (JS):</div><div class="line">var content = React.createElement(</div><div class="line">  Container,</div><div class="line">  null,</div><div class="line">  window.isLoggedIn ? React.createElement(Nav) : React.createElement(Login)</div><div class="line">);</div></pre></td></tr></table></figure>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>JSX 里添加注释很容易；它们只是 JS 表达式而已。你只需要在一个标签的子节点内(非最外层)用 {} 包围要注释的部分。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class ReactDemo extends Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (     </div><div class="line">      <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></div><div class="line">        &#123;/*标签子节点的注释*/&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.welcome&#125;</span></span></div><div class="line"><span class="tag">          //<span class="attr">textAlign</span>=<span class="string">'right'</span></span></div><div class="line"><span class="tag">          <span class="attr">textShadowColor</span>=<span class="string">'yellow'</span></span></div><div class="line"><span class="tag">          /*<span class="attr">color</span>=<span class="string">'red'</span></span></div><div class="line"><span class="tag">          <span class="attr">textShadowRadius</span>=<span class="string">'1'</span>*/</span></div><div class="line"><span class="tag">          &gt;</span></div><div class="line">          React Native!</div><div class="line">        <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>心得：在标签节点以外注释，和通常的注释是一样的，多行用“/**/” 单行用“//”；</p>
-</blockquote>
-<h3 id="JSX延展属性"><a href="#JSX延展属性" class="headerlink" title="JSX延展属性"></a>JSX延展属性</h3><h4 id="不要试图去修改组件的属性"><a href="#不要试图去修改组件的属性" class="headerlink" title="不要试图去修改组件的属性"></a>不要试图去修改组件的属性</h4><p>不推荐做法：   </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> /&gt;</span>;</div><div class="line">component.props.foo = x; // 不推荐</div><div class="line">component.props.bar = y; // 不推荐</div></pre></td></tr></table></figure>
-<p>这样修改组件的属性，会导致React不会对组件的属性类型（propTypes）进行的检查。从而引发一些预料之外的问题。</p>
-<p>推荐做法：  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> <span class="attr">foo</span>=<span class="string">&#123;x&#125;</span> <span class="attr">bar</span>=<span class="string">&#123;y&#125;</span> /&gt;</span>;</div></pre></td></tr></table></figure>
-<h4 id="延展属性（Spread-Attributes）"><a href="#延展属性（Spread-Attributes）" class="headerlink" title="延展属性（Spread Attributes）"></a>延展属性（Spread Attributes）</h4><p>你可以使用 JSX 的新特性 - 延展属性：  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var props = &#123;&#125;;</div><div class="line">props.foo = x;</div><div class="line">props.bar = y;</div><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span>;</div></pre></td></tr></table></figure>
-<p>传入对象的属性会被复制到组件内。</p>
-<p>它能被多次使用，也可以和其它属性一起用。注意顺序很重要，后面的会覆盖掉前面的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var props = &#123; foo: 'default' &#125;;</div><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...props</span>&#125; <span class="attr">foo</span>=<span class="string">&#123;</span>'<span class="attr">override</span>'&#125; /&gt;</span>;</div><div class="line">console.log(component.props.foo); // 'override'</div></pre></td></tr></table></figure>
-<p>上文出现的… 标记被叫做延展操作符（spread operator）已经被 ES6 数组 支持。</p>
-<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。 </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var HelloMessage = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">HelloMessage</span> <span class="attr">name</span>=<span class="string">"John"</span> /&gt;</span>,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>上面代码中，变量 HelloMessage 就是一个组件类。模板插入 <code>&lt;HelloMessage /&gt;</code>时，会自动生成 HelloMessage 的一个实例。所有组件类都必须有自己的 render 方法，用于输出组件。</p>
-<blockquote>
-<p>注意 </p>
-</blockquote>
-<ul>
-<li>组件类的第一个字母必须大写。</li>
-<li>组件类只能包含一个顶层标签。  </li>
-</ul>
-<h2 id="组件的属性-props"><a href="#组件的属性-props" class="headerlink" title="组件的属性(props)"></a>组件的属性(props)</h2><p>我们可以通过<code>this.props.xx</code>的形式获取组件对象的属性，对象的属性可以任意定义，但要避免与JavaScript关键字冲突。  </p>
-<h3 id="遍历对象的属性："><a href="#遍历对象的属性：" class="headerlink" title="遍历对象的属性："></a>遍历对象的属性：</h3><p><code>this.props.children</code>会返回组件对象的所有属性。<br>React 提供一个工具方法 React.Children 来处理 this.props.children 。我们可以用 <code>React.Children.map</code>或<code>React.Children.forEach</code> 来遍历子节点。<br><strong>React.Children.map</strong>  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">array React.Children.map(object children, function fn [, object thisArg])</div><div class="line">```     </div><div class="line">该方法会返回一个array。  </div><div class="line">**React.Children.forEach**    </div><div class="line"></div><div class="line">```html</div><div class="line">React.Children.forEach(object children, function fn [, object thisArg])</div><div class="line">```  </div><div class="line">**Usage：**  </div><div class="line"></div><div class="line">```html</div><div class="line">var NotesList = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">      &#123;</div><div class="line">        React.Children.map(this.props.children, function (child) &#123;</div><div class="line">          return <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;child&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>;</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">NotesList</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>world<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">NotesList</span>&gt;</span>,</div><div class="line">  document.body</div><div class="line">);</div></pre></td></tr></table></figure>
-<h3 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a><a href="https://facebook.github.io/react/docs/top-level-api.html#react.proptypes" target="_blank" rel="external">PropTypes</a></h3><p>组件的属性可以接受任意值，字符串、对象、函数等等都可以。有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。<br>组件类的PropTypes属性，就是用来验证组件实例的属性是否符合要求。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var MyTitle = React.createClass(&#123;</div><div class="line">  propTypes: &#123;</div><div class="line">    title: React.PropTypes.string.isRequired,</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">     return <span class="tag">&lt;<span class="name">h1</span>&gt;</span> &#123;this.props.title&#125; <span class="tag">&lt;/<span class="name">h1</span>&gt;</span>;</div><div class="line">   &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面的Mytitle组件有一个title属性。PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。现在，我们设置 title 属性的值是一个数值。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var data = 123;</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">MyTitle</span> <span class="attr">title</span>=<span class="string">&#123;data&#125;</span> /&gt;</span>,</div><div class="line">  document.body</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>这样一来，title属性就通不过验证了。控制台会显示一行错误信息。</p>
-<figure class="highlight plain"><figcaption><span>Failed propType: Invalid prop `title` of type `number` supplied to `MyTitle`, expected `string`.```  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">更多的PropTypes设置，可以查看[官方文档](https://facebook.github.io/react/docs/reusable-components.html)。  </div><div class="line">此外，getDefaultProps 方法可以用来设置组件属性的默认值。</div><div class="line"></div><div class="line">```html</div><div class="line">var MyTitle = React.createClass(&#123;</div><div class="line">  getDefaultProps : function () &#123;</div><div class="line">    return &#123;</div><div class="line">      title : &apos;Hello World&apos;</div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">     return &lt;h1&gt; &#123;this.props.title&#125; &lt;/h1&gt;;</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;MyTitle /&gt;,</div><div class="line">  document.body</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>上面代码会输出<code>&quot;Hello World&quot;</code>。   </p>
-<h2 id="ref-属性-获取真实的DOM节点"><a href="#ref-属性-获取真实的DOM节点" class="headerlink" title="ref 属性(获取真实的DOM节点)"></a>ref 属性(获取真实的DOM节点)</h2><p>组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。</p>
-<p>但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 ref 属性。  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var MyComponent = React.createClass(&#123;</div><div class="line">  handleClick: function() &#123;</div><div class="line">    this.refs.myTextInput.focus();</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ref</span>=<span class="string">"myTextInput"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Focus the text input"</span> 		  <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">MyComponent</span> /&gt;</span>,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>上面代码中，组件 MyComponent 的子节点有一个文本输入框，用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为了做到这一点，文本输入框必须有一个 ref 属性，然后 this.refs.[refName] 就会返回这个真实的 DOM 节点。<br>需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。上面代码中，通过为组件指定 Click 事件的回调函数，确保了只有等到真实 DOM 发生 Click 事件之后，才会读取 this.refs.[refName] 属性。<br>React 组件支持很多事件，除了 Click 事件以外，还有 KeyDown 、Copy、Scroll 等，完整的事件清单请查看<a href="https://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="external">官方文档</a>。</p>
-<blockquote>
-<p>心得：ref属性在开发中使用频率很高，使用它你可以获取到任何你想要获取的组件的对象，有个这个对象你就可以灵活地做很多事情，比如：读写对象的变量，甚至调用对象的函数。  </p>
-</blockquote>
-<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>上文讲到了props，因为每个组件只会根据props 渲染了自己一次，props 是不可变的。为了实现交互，可以使用组件的 state 。this.state 是组件私有的，可以通过<code>getInitialState()</code>方法初始化，通过调用 <code>this.setState()</code> 来改变它。当 state 更新之后，组件就会重新渲染自己。<br>render() 方法依赖于 this.props 和 this.state ，框架会确保渲染出来的 UI 界面总是与输入（ this.props 和 this.state ）保持一致。</p>
-<h3 id="初始化state"><a href="#初始化state" class="headerlink" title="初始化state"></a>初始化state</h3><p>通过<code>getInitialState()</code>方法初始化state，在组件的生命周期中仅执行一次，用于设置组件的初始化 state 。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getInitialState:function()&#123;</div><div class="line">   return &#123;favorite:false&#125;;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="更新-state"><a href="#更新-state" class="headerlink" title="更新 state"></a>更新 state</h3><p>通过<code>this.setState()</code>方法来更新state，调用该方法后，React会重新渲染相关的UI。<br><code>this.setState({favorite:!this.state.favorite});</code></p>
-<p><strong>Usage:</strong>  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var FavoriteButton=React.createClass(&#123;</div><div class="line">  getInitialState:function()&#123;</div><div class="line">    return &#123;favorite:false&#125;;</div><div class="line">  &#125;,</div><div class="line">  handleClick:function(event)&#123;</div><div class="line">    this.setState(&#123;favorite:!this.state.favorite&#125;);</div><div class="line">  &#125;,</div><div class="line">  render:function()&#123;</div><div class="line">    var text=this.state.favorite? 'favorite':'un favorite';</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">type</span>=<span class="string">'button'</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></div><div class="line">        You &#123;text&#125; this. Click to toggle.</div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面代码是一个 FavoriteButton 组件，它的 getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。  </p>
-<blockquote>
-<p>心得：由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。</p>
-</blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://facebook.github.io/react/" target="_blank" rel="external">React’s official site</a><br><a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus" target="_blank" rel="external">React on ES6+</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;React-Native之React速学教程-上&quot;&gt;&lt;a href=&quot;#React-Native之React速学教程-上&quot; class=&quot;headerlink&quot; title=&quot;React Native之React速学教程(上)&quot;&gt;&lt;/a&gt;React Native之
-    
-    </summary>
-    
-    
-      <category term="react" scheme="http://zlstory.com/tags/react/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React</title>
     <link href="http://zlstory.com/2017/07/10/react3/"/>
     <id>http://zlstory.com/2017/07/10/react3/</id>
     <published>2017-07-09T16:00:00.000Z</published>
@@ -686,6 +1022,120 @@
     <summary type="html">
     
       &lt;h1 id=&quot;React-Native之React速学教程-下&quot;&gt;&lt;a href=&quot;#React-Native之React速学教程-下&quot; class=&quot;headerlink&quot; title=&quot;React Native之React速学教程(下)&quot;&gt;&lt;/a&gt;React Native之
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://zlstory.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React</title>
+    <link href="http://zlstory.com/2017/07/10/react1/"/>
+    <id>http://zlstory.com/2017/07/10/react1/</id>
+    <published>2017-07-09T16:00:00.000Z</published>
+    <updated>2017-08-24T10:12:21.738Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="React-Native之React速学教程-上"><a href="#React-Native之React速学教程-上" class="headerlink" title="React Native之React速学教程(上)"></a>React Native之React速学教程(上)</h1><p>本文出自《React Native学习笔记》系列文章。</p>
+<p></p><p style="font-size:12px;color:red;">非我原创，原创作者也不知道是谁，放在页面上方便学习</p><br>React Native是基于React的，在开发React Native过程中少不了的需要用到React方面的知识。虽然官方也有相应的Document，但篇幅比较多，学起来比较枯燥。<br>通过《React Native之React速学教程》你可以对React有更系统和更深入的认识。为了方便大家学习，我将《React Native之React速学教程》分为上、中、下三篇，大家可以根据需要进行阅读学习。  <p></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇为《React Native之React速学教程》的第一篇。本篇将从React的特点、如何使用React、JSX语法、组件(Component）以及组件的属性，状态等方面进行讲解。  </p>
+<h2 id="What’s-React"><a href="#What’s-React" class="headerlink" title="What’s React"></a>What’s React</h2><p>React是一个用于组建用户界面的JavaScript库，让你以更简单的方式来创建交互式用户界面。    </p>
+<ol>
+<li>当数据改变时，React将高效的更新和渲染需要更新的组件。声明性视图使你的代码更可预测，更容易调试。</li>
+<li>构建封装管理自己的状态的组件，然后将它们组装成复杂的用户界面。由于组件逻辑是用JavaScript编写的，而不是模板，所以你可以轻松地通过您的应用程序传递丰富的数据，并保持DOM状态。</li>
+<li>一次学习随处可写，学习React，你不仅可以将它用于Web开发，也可以用于React Native来开发Android和iOS应用。  </li>
+</ol>
+<p>不是模板却比模板更加灵活：  </p>
+<p><img src="https://raw.githubusercontent.com/crazycodeboy/RNStudyNotes/master/React%20Native%E4%B9%8BReact%E9%80%9F%E5%AD%A6%E6%95%99%E7%A8%8B/images/Component.jpg" alt="Component">  </p>
+<blockquote>
+<p>心得：上图是<a href="https://github.com/crazycodeboy/GitHubPopular" target="_blank" rel="external">GitHub Popular</a>的首页截图，这个页面是通过不同的组件组装而成的，组件化的开发模式，使得代码在更大程度上的到复用，而且组件之间对的组装很灵活。  </p>
+</blockquote>
+<h2 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h2><p>使用React之前需要在页面引入如下js库 。  </p>
+<ul>
+<li>react.js  </li>
+<li>react-dom.js  </li>
+<li>browser.min.js  </li>
+</ul>
+<p>上面一共列举了三个库： react.js 、react-dom.js 和 browser.min.js ，它们必须首先加载。其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，browser.min.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。<br>你可以从<a href="https://facebook.github.io/react/downloads.html" target="_blank" rel="external">React官网</a>下载这些库，也可以将其下载到本地去使用。 </p>
+<blockquote>
+<p>心得：在做React Native开发时，这些库作为React Native核心库已经被初始化在node_modules目录下，所以不需要单独下载。  </p>
+</blockquote>
+<h3 id="使用React"><a href="#使用React" class="headerlink" title="使用React"></a>使用React</h3><p>解压从上述地址下载的压缩包，在根目录中创建一个包含以下内容的 “helloworld.html” 。  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello React!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"build/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"build/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://npmcdn.com/babel-core@5.8.38/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">      ReactDOM.render(</span></div><div class="line"><span class="javascript">        &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,</span></div><div class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)</span></div><div class="line"><span class="undefined">      );</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在 JavaScript 代码里写着 XML 格式的代码称为 JSX，下文会介绍。为了把 JSX 转成标准的 JavaScript，我们用<code>&lt;script type=&quot;text/babel&quot;&gt;</code>标签，然后通过Babel转换成在浏览器中真正执行的内容。  </p>
+<h3 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render()"></a>ReactDOM.render()</h3><p>ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div><div class="line">```  </div><div class="line">上述代码的作用是将`<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>`插入到元素id为example的容器中。   </div><div class="line"></div><div class="line"></div><div class="line">## JSX  </div><div class="line">JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。</div><div class="line">每一个XML标签都会被JSX转换工具转换成纯JavaScript代码，使用JSX，组件的结构和组件之间的关系看上去更加清晰。  </div><div class="line">JSX并不是React必须使用的，但React官方建议我们使用 JSX , 因为它能定义简洁且我们熟知的包含属性的树状结构语法。 </div><div class="line">    </div><div class="line"></div><div class="line">**Usage:**  </div><div class="line">  </div><div class="line">```html </div><div class="line">React.render(//使用JSX</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>,</div><div class="line">    document.getElementById('example')</div><div class="line">); </div><div class="line">React.render(//不使用JSX</div><div class="line">    React.createElement('div', null,</div><div class="line">        React.createElement('div', null,</div><div class="line">            React.createElement('div', null, 'content')</div><div class="line">        )</div><div class="line">    ),</div><div class="line">    document.getElementById('example')</div><div class="line">);</div><div class="line">```   </div><div class="line"></div><div class="line">### HTML标签 与 React组件 对比</div><div class="line"></div><div class="line">React 可以渲染 HTML 标签 (strings) 或 React 组件 (classes)。   </div><div class="line">要渲染 HTML 标签，只需在 JSX 里使用小写字母开头的标签名。</div><div class="line"></div><div class="line">```html </div><div class="line">var myDivElement = <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"foo"</span> /&gt;</span>;</div><div class="line">React.render(myDivElement, document.body);</div></pre></td></tr></table></figure></p>
+<p>要渲染 React 组件，只需创建一个大写字母开头的本地变量。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var MyComponent = React.createClass(&#123;/*...*/&#125;);</div><div class="line">var myElement = <span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">someProperty</span>=<span class="string">&#123;true&#125;</span> /&gt;</span>;</div><div class="line">React.render(myElement, document.body);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：    </p>
+<ul>
+<li>React 的 JSX 里约定分别使用首字母大、小写来区分本地组件的类和 HTML 标签。    </li>
+<li>由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，  React DOM 使用 className 和 htmlFor 来做对应的属性。  </li>
+</ul>
+</blockquote>
+<h3 id="JavaScript-表达式"><a href="#JavaScript-表达式" class="headerlink" title="JavaScript 表达式"></a>JavaScript 表达式</h3><h4 id="属性表达式"><a href="#属性表达式" class="headerlink" title="属性表达式"></a>属性表达式</h4><p>要使用 JavaScript 表达式作为属性值，只需把这个表达式用一对大括号 ({}) 包起来，不要用引号 (“”)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 输入 (JSX):</div><div class="line">var person = <span class="tag">&lt;<span class="name">Person</span> <span class="attr">name</span>=<span class="string">&#123;window.isLoggedIn</span> ? <span class="attr">window.name</span> <span class="attr">:</span> ''&#125; /&gt;</span>;</div><div class="line">// 输出 (JS):</div><div class="line">var person = React.createElement(</div><div class="line">  Person,</div><div class="line">  &#123;name: window.isLoggedIn ? window.name : ''&#125;</div><div class="line">);</div></pre></td></tr></table></figure>
+<h4 id="子节点表达式"><a href="#子节点表达式" class="headerlink" title="子节点表达式"></a>子节点表达式</h4><p>同样地，JavaScript 表达式可用于描述子结点：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 输入 (JSX):</div><div class="line">var content = <span class="tag">&lt;<span class="name">Container</span>&gt;</span>&#123;window.isLoggedIn ? <span class="tag">&lt;<span class="name">Nav</span> /&gt;</span> : <span class="tag">&lt;<span class="name">Login</span> /&gt;</span>&#125;<span class="tag">&lt;/<span class="name">Container</span>&gt;</span>;</div><div class="line">// 输出 (JS):</div><div class="line">var content = React.createElement(</div><div class="line">  Container,</div><div class="line">  null,</div><div class="line">  window.isLoggedIn ? React.createElement(Nav) : React.createElement(Login)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>JSX 里添加注释很容易；它们只是 JS 表达式而已。你只需要在一个标签的子节点内(非最外层)用 {} 包围要注释的部分。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class ReactDemo extends Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (     </div><div class="line">      <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></div><div class="line">        &#123;/*标签子节点的注释*/&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.welcome&#125;</span></span></div><div class="line"><span class="tag">          //<span class="attr">textAlign</span>=<span class="string">'right'</span></span></div><div class="line"><span class="tag">          <span class="attr">textShadowColor</span>=<span class="string">'yellow'</span></span></div><div class="line"><span class="tag">          /*<span class="attr">color</span>=<span class="string">'red'</span></span></div><div class="line"><span class="tag">          <span class="attr">textShadowRadius</span>=<span class="string">'1'</span>*/</span></div><div class="line"><span class="tag">          &gt;</span></div><div class="line">          React Native!</div><div class="line">        <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>心得：在标签节点以外注释，和通常的注释是一样的，多行用“/**/” 单行用“//”；</p>
+</blockquote>
+<h3 id="JSX延展属性"><a href="#JSX延展属性" class="headerlink" title="JSX延展属性"></a>JSX延展属性</h3><h4 id="不要试图去修改组件的属性"><a href="#不要试图去修改组件的属性" class="headerlink" title="不要试图去修改组件的属性"></a>不要试图去修改组件的属性</h4><p>不推荐做法：   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> /&gt;</span>;</div><div class="line">component.props.foo = x; // 不推荐</div><div class="line">component.props.bar = y; // 不推荐</div></pre></td></tr></table></figure>
+<p>这样修改组件的属性，会导致React不会对组件的属性类型（propTypes）进行的检查。从而引发一些预料之外的问题。</p>
+<p>推荐做法：  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> <span class="attr">foo</span>=<span class="string">&#123;x&#125;</span> <span class="attr">bar</span>=<span class="string">&#123;y&#125;</span> /&gt;</span>;</div></pre></td></tr></table></figure>
+<h4 id="延展属性（Spread-Attributes）"><a href="#延展属性（Spread-Attributes）" class="headerlink" title="延展属性（Spread Attributes）"></a>延展属性（Spread Attributes）</h4><p>你可以使用 JSX 的新特性 - 延展属性：  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var props = &#123;&#125;;</div><div class="line">props.foo = x;</div><div class="line">props.bar = y;</div><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span>;</div></pre></td></tr></table></figure>
+<p>传入对象的属性会被复制到组件内。</p>
+<p>它能被多次使用，也可以和其它属性一起用。注意顺序很重要，后面的会覆盖掉前面的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var props = &#123; foo: 'default' &#125;;</div><div class="line">var component = <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...props</span>&#125; <span class="attr">foo</span>=<span class="string">&#123;</span>'<span class="attr">override</span>'&#125; /&gt;</span>;</div><div class="line">console.log(component.props.foo); // 'override'</div></pre></td></tr></table></figure>
+<p>上文出现的… 标记被叫做延展操作符（spread operator）已经被 ES6 数组 支持。</p>
+<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var HelloMessage = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">HelloMessage</span> <span class="attr">name</span>=<span class="string">"John"</span> /&gt;</span>,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>上面代码中，变量 HelloMessage 就是一个组件类。模板插入 <code>&lt;HelloMessage /&gt;</code>时，会自动生成 HelloMessage 的一个实例。所有组件类都必须有自己的 render 方法，用于输出组件。</p>
+<blockquote>
+<p>注意 </p>
+</blockquote>
+<ul>
+<li>组件类的第一个字母必须大写。</li>
+<li>组件类只能包含一个顶层标签。  </li>
+</ul>
+<h2 id="组件的属性-props"><a href="#组件的属性-props" class="headerlink" title="组件的属性(props)"></a>组件的属性(props)</h2><p>我们可以通过<code>this.props.xx</code>的形式获取组件对象的属性，对象的属性可以任意定义，但要避免与JavaScript关键字冲突。  </p>
+<h3 id="遍历对象的属性："><a href="#遍历对象的属性：" class="headerlink" title="遍历对象的属性："></a>遍历对象的属性：</h3><p><code>this.props.children</code>会返回组件对象的所有属性。<br>React 提供一个工具方法 React.Children 来处理 this.props.children 。我们可以用 <code>React.Children.map</code>或<code>React.Children.forEach</code> 来遍历子节点。<br><strong>React.Children.map</strong>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">array React.Children.map(object children, function fn [, object thisArg])</div><div class="line">```     </div><div class="line">该方法会返回一个array。  </div><div class="line">**React.Children.forEach**    </div><div class="line"></div><div class="line">```html</div><div class="line">React.Children.forEach(object children, function fn [, object thisArg])</div><div class="line">```  </div><div class="line">**Usage：**  </div><div class="line"></div><div class="line">```html</div><div class="line">var NotesList = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">      &#123;</div><div class="line">        React.Children.map(this.props.children, function (child) &#123;</div><div class="line">          return <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;child&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>;</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">NotesList</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>world<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">NotesList</span>&gt;</span>,</div><div class="line">  document.body</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a><a href="https://facebook.github.io/react/docs/top-level-api.html#react.proptypes" target="_blank" rel="external">PropTypes</a></h3><p>组件的属性可以接受任意值，字符串、对象、函数等等都可以。有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。<br>组件类的PropTypes属性，就是用来验证组件实例的属性是否符合要求。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var MyTitle = React.createClass(&#123;</div><div class="line">  propTypes: &#123;</div><div class="line">    title: React.PropTypes.string.isRequired,</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">     return <span class="tag">&lt;<span class="name">h1</span>&gt;</span> &#123;this.props.title&#125; <span class="tag">&lt;/<span class="name">h1</span>&gt;</span>;</div><div class="line">   &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的Mytitle组件有一个title属性。PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。现在，我们设置 title 属性的值是一个数值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var data = 123;</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">MyTitle</span> <span class="attr">title</span>=<span class="string">&#123;data&#125;</span> /&gt;</span>,</div><div class="line">  document.body</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>这样一来，title属性就通不过验证了。控制台会显示一行错误信息。</p>
+<figure class="highlight plain"><figcaption><span>Failed propType: Invalid prop `title` of type `number` supplied to `MyTitle`, expected `string`.```  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">更多的PropTypes设置，可以查看[官方文档](https://facebook.github.io/react/docs/reusable-components.html)。  </div><div class="line">此外，getDefaultProps 方法可以用来设置组件属性的默认值。</div><div class="line"></div><div class="line">```html</div><div class="line">var MyTitle = React.createClass(&#123;</div><div class="line">  getDefaultProps : function () &#123;</div><div class="line">    return &#123;</div><div class="line">      title : &apos;Hello World&apos;</div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">     return &lt;h1&gt; &#123;this.props.title&#125; &lt;/h1&gt;;</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;MyTitle /&gt;,</div><div class="line">  document.body</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>上面代码会输出<code>&quot;Hello World&quot;</code>。   </p>
+<h2 id="ref-属性-获取真实的DOM节点"><a href="#ref-属性-获取真实的DOM节点" class="headerlink" title="ref 属性(获取真实的DOM节点)"></a>ref 属性(获取真实的DOM节点)</h2><p>组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。</p>
+<p>但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 ref 属性。  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var MyComponent = React.createClass(&#123;</div><div class="line">  handleClick: function() &#123;</div><div class="line">    this.refs.myTextInput.focus();</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ref</span>=<span class="string">"myTextInput"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Focus the text input"</span> 		  <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="tag">&lt;<span class="name">MyComponent</span> /&gt;</span>,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>上面代码中，组件 MyComponent 的子节点有一个文本输入框，用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为了做到这一点，文本输入框必须有一个 ref 属性，然后 this.refs.[refName] 就会返回这个真实的 DOM 节点。<br>需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。上面代码中，通过为组件指定 Click 事件的回调函数，确保了只有等到真实 DOM 发生 Click 事件之后，才会读取 this.refs.[refName] 属性。<br>React 组件支持很多事件，除了 Click 事件以外，还有 KeyDown 、Copy、Scroll 等，完整的事件清单请查看<a href="https://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="external">官方文档</a>。</p>
+<blockquote>
+<p>心得：ref属性在开发中使用频率很高，使用它你可以获取到任何你想要获取的组件的对象，有个这个对象你就可以灵活地做很多事情，比如：读写对象的变量，甚至调用对象的函数。  </p>
+</blockquote>
+<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>上文讲到了props，因为每个组件只会根据props 渲染了自己一次，props 是不可变的。为了实现交互，可以使用组件的 state 。this.state 是组件私有的，可以通过<code>getInitialState()</code>方法初始化，通过调用 <code>this.setState()</code> 来改变它。当 state 更新之后，组件就会重新渲染自己。<br>render() 方法依赖于 this.props 和 this.state ，框架会确保渲染出来的 UI 界面总是与输入（ this.props 和 this.state ）保持一致。</p>
+<h3 id="初始化state"><a href="#初始化state" class="headerlink" title="初始化state"></a>初始化state</h3><p>通过<code>getInitialState()</code>方法初始化state，在组件的生命周期中仅执行一次，用于设置组件的初始化 state 。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getInitialState:function()&#123;</div><div class="line">   return &#123;favorite:false&#125;;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="更新-state"><a href="#更新-state" class="headerlink" title="更新 state"></a>更新 state</h3><p>通过<code>this.setState()</code>方法来更新state，调用该方法后，React会重新渲染相关的UI。<br><code>this.setState({favorite:!this.state.favorite});</code></p>
+<p><strong>Usage:</strong>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var FavoriteButton=React.createClass(&#123;</div><div class="line">  getInitialState:function()&#123;</div><div class="line">    return &#123;favorite:false&#125;;</div><div class="line">  &#125;,</div><div class="line">  handleClick:function(event)&#123;</div><div class="line">    this.setState(&#123;favorite:!this.state.favorite&#125;);</div><div class="line">  &#125;,</div><div class="line">  render:function()&#123;</div><div class="line">    var text=this.state.favorite? 'favorite':'un favorite';</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">type</span>=<span class="string">'button'</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></div><div class="line">        You &#123;text&#125; this. Click to toggle.</div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面代码是一个 FavoriteButton 组件，它的 getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。  </p>
+<blockquote>
+<p>心得：由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://facebook.github.io/react/" target="_blank" rel="external">React’s official site</a><br><a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus" target="_blank" rel="external">React on ES6+</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Native之React速学教程-上&quot;&gt;&lt;a href=&quot;#React-Native之React速学教程-上&quot; class=&quot;headerlink&quot; title=&quot;React Native之React速学教程(上)&quot;&gt;&lt;/a&gt;React Native之
     
     </summary>
     
@@ -938,9 +1388,9 @@
     </summary>
     
     
-      <category term="css" scheme="http://zlstory.com/tags/css/"/>
-    
       <category term="jQuery" scheme="http://zlstory.com/tags/jQuery/"/>
+    
+      <category term="css" scheme="http://zlstory.com/tags/css/"/>
     
       <category term="选择器" scheme="http://zlstory.com/tags/%E9%80%89%E6%8B%A9%E5%99%A8/"/>
     
