@@ -202,7 +202,6 @@ ECMAScript(核心) + DOM(文档对象模型) + BOM(浏览器对象模型)。
 <h5 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h5><table>
 <thead>
 <tr>
-<th>名称</th>
 <th style="text-align:center">方法</th>
 <th style="text-align:center">参数</th>
 <th style="text-align:center">作用</th>
@@ -211,56 +210,48 @@ ECMAScript(核心) + DOM(文档对象模型) + BOM(浏览器对象模型)。
 </thead>
 <tbody>
 <tr>
-<td>转换方法</td>
 <td style="text-align:center">toLocalString() <br>toString()<br>valueOf()</td>
 <td style="text-align:center"></td>
 <td style="text-align:center">将数组转换成字符串</td>
 <td style="text-align:center">返回数组的字符串格式</td>
 </tr>
 <tr>
-<td>栈方法</td>
 <td style="text-align:center">push() <br>pop()</td>
 <td style="text-align:center">任意数量的参数<br>无需传参</td>
 <td style="text-align:center">将参数添加到数组末尾<br>移除数组的最后一项</td>
 <td style="text-align:center">返回新数组的长度<br>被移除的那一项</td>
 </tr>
 <tr>
-<td>队列方法</td>
 <td style="text-align:center">unshift() <br>shift()</td>
 <td style="text-align:center">任意数量的参数<br>无需传参</td>
 <td style="text-align:center">将参数添加到数组最前端<br>移除数组的第一项</td>
 <td style="text-align:center">返回新数组的长度<br>被移除的那一项</td>
 </tr>
 <tr>
-<td>重排序方法</td>
 <td style="text-align:center">reverse() <br>sort()</td>
 <td style="text-align:center">无需传参<br>比较函数</td>
 <td style="text-align:center">反转数组的顺序<br>按照一定规则给数组排序</td>
 <td style="text-align:center">返回排序后的数组</td>
 </tr>
 <tr>
-<td>操作方法</td>
 <td style="text-align:center">concat() <br>slice()</td>
 <td style="text-align:center">值或数组<br>两或三个参数</td>
 <td style="text-align:center">基于当前数组的所有项创建一个新数组<br>删除(起始位置,结束位置)、插入(起始位置,删除个数,插入项)、替换(起始位置,删除个数,插入项)</td>
 <td style="text-align:center">返回操作后的新数组</td>
 </tr>
 <tr>
-<td>位置方法</td>
 <td style="text-align:center">indexOf() <br>lastIndexOf()</td>
 <td style="text-align:center">查找的内容,查找开始的位置</td>
 <td style="text-align:center">从前往后找<br>从后往前找</td>
 <td style="text-align:center">找不到返回-1，返回查找项在数组中的位置</td>
 </tr>
 <tr>
-<td>迭代方法</td>
 <td style="text-align:center">every() <br>filter() <br>forEach() <br>map() <br>some()</td>
 <td style="text-align:center">给定函数(数组的每一项都执行该函数)</td>
 <td style="text-align:center">该函数对数组每一项返回true，则返回true<br>返回值为true的数组<br>运行给定函数<br>函数调用后的结果组成的数组<br>任一项返回true，则返回true</td>
 <td style="text-align:center">true<br>数组<br>无返回值<br>数组<br>true</td>
 </tr>
 <tr>
-<td>归并方法</td>
 <td style="text-align:center">reduce() <br>reduceRight()</td>
 <td style="text-align:center">给定函数(函数参数：prev,cur,index,arr)，归并基础的初始值</td>
 <td style="text-align:center">从头开始遍历<br>从尾部开始遍历</td>
@@ -433,7 +424,7 @@ $.ajax({
   error: function() {
     $('.btn_click_load').css('display','block');
   }
-});</script><script id="dsq-count-scr" src="//zlstory.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/javaScript小知识/" style="font-size: 15px;">javaScript小知识</a> <a href="/tags/Array/" style="font-size: 15px;">Array</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/es6/" style="font-size: 15px;">es6</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/js-basic/">JavaScript核心-ECMAScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/vue/">vue入门知识小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/hexo/">hexo个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/responsive/">响应式开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_1/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_2/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react1/">React</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react2/">React</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react3/">React</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//zlstory.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://sinsle.com/" title="休克" target="_blank">休克</a><ul></ul><a href="https://www.wujiabk.com" title="吴佳博客" target="_blank">吴佳博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">zlstory.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+});</script><script id="dsq-count-scr" src="//zlstory.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/javaScript小知识/" style="font-size: 15px;">javaScript小知识</a> <a href="/tags/es6/" style="font-size: 15px;">es6</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/Array/" style="font-size: 15px;">Array</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/js-basic/">JavaScript核心-ECMAScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/vue/">vue入门知识小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/hexo/">hexo个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/responsive/">响应式开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_1/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_2/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react1/">React</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react2/">React</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react3/">React</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//zlstory.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://sinsle.com/" title="休克" target="_blank">休克</a><ul></ul><a href="https://www.wujiabk.com" title="吴佳博客" target="_blank">吴佳博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">zlstory.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
 if (search_path.length == 0) {
    search_path = 'search.xml';
 }
