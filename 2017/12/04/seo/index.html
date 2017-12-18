@@ -4,13 +4,13 @@
 <h4 id="服务器系统概念"><a href="#服务器系统概念" class="headerlink" title="服务器系统概念"></a>服务器系统概念</h4><p>定义在服务器上的操作系统</p>
 <h4 id="服务器系统分类"><a href="#服务器系统分类" class="headerlink" title="服务器系统分类"></a>服务器系统分类</h4><p>window 、Linux、Unix</p>
 <h4 id="服务器对网站的重要性"><a href="#服务器对网站的重要性" class="headerlink" title="服务器对网站的重要性"></a>服务器对网站的重要性</h4><ol>
-<li>确保网站持续稳定：网站24小时都可以访问</li>
+<li><p>确保网站持续稳定：网站24小时都可以访问</p>
+<p> 影响因素：硬件配置、操作系统、应用软件    </p>
+</li>
+<li><p>确保网站速度够快：网站可以瞬间打开</p>
+<p> 影响因素：避免流量大的机房、独立IP、带宽</p>
+</li>
 </ol>
-<p>影响因素：硬件配置、操作系统、应用软件    </p>
-<ol>
-<li>确保网站速度够快：网站可以瞬间打开</li>
-</ol>
-<p>影响因素：避免流量大的机房、独立IP、带宽</p>
 <h3 id="主机知识"><a href="#主机知识" class="headerlink" title="主机知识"></a>主机知识</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>主机（也叫空间）是存放网站程序和数据的地方，是搭建网站的三要素之一。</p>
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>按照地域分类：国内主机(较贵，需要备案，但是速度快)、国外主机(比较便宜，不需备案，速度较慢)</p>
 <p>按照程序语言分类：PHP主机、ASP主机、全能主机</p>
@@ -79,18 +79,30 @@
 <p>因为一些系统中的URL是大小写敏感的，所以robots.txt的文件名应统一为小写。</p>
 <p>用法：</p>
 <ol>
-<li><p>允许所有的机器人<br> User-agent:*<br> Disallow:</p>
-<p> User-agent:*<br> Allow:/</p>
+<li><p>允许所有的机器人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">User-agent:*</div><div class="line">Disallow:</div><div class="line"></div><div class="line">User-agent:*</div><div class="line">Allow:/</div></pre></td></tr></table></figure>
 </li>
-<li>允许特定的机器人<br> User-agent:some_spider<br> Allow:</li>
-<li><p>仅禁止特定机器人访问<br> User-agent:any_spider<br> Disallow:/</p>
+<li><p>允许特定的机器人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">User-agent:some_spider</div><div class="line">Allow:</div></pre></td></tr></table></figure>
 </li>
-<li><p>禁止所有的机器人<br> User-agent:*<br> Disallow:/</p>
+<li><p>仅禁止特定机器人访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">User-agent:any_spider</div><div class="line">Disallow:/</div></pre></td></tr></table></figure>
 </li>
-<li>禁止所有机器人访问特定目录<br> User-agent: *<br> Disallow: /cgi-bin/<br> Disallow: /images/<br> Disallow: /tmp/<br> Disallow: /private/</li>
-<li>禁止所有机器人访问特定文件类型<br> User-agent: <em><br> Disallow: /</em>.php$<br> Disallow: /<em>.js$<br> Disallow: /</em>.inc$<br> Disallow: /*.css$</li>
-<li>使用”<em>“来限制访问的url，如仅允许访问以”.html”为后缀的url<br> User-agent: </em><br> Disallow: /cgi-bin/*.htm</li>
-<li>禁止访问网站中所有的动态界面<br> User-agent: <em><br> Disallow: /</em>?*</li>
+<li><p>禁止所有的机器人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">User-agent:*</div><div class="line">Disallow:/</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁止所有机器人访问特定目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">User-agent: *</div><div class="line">Disallow: /cgi-bin/</div><div class="line">Disallow: /images/</div><div class="line">Disallow: /tmp/</div><div class="line">Disallow: /private/</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁止所有机器人访问特定文件类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">User-agent: *</div><div class="line">Disallow: /*.php$</div><div class="line">Disallow: /*.js$</div><div class="line">Disallow: /*.inc$</div><div class="line">Disallow: /*.css$</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用”*“来限制访问的url，如仅允许访问以”.html”为后缀的url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">User-agent: *</div><div class="line">Disallow: /cgi-bin/*.htm</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁止访问网站中所有的动态界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">User-agent: *</div><div class="line">Disallow: /*?*</div></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="查询网站收入量"><a href="#查询网站收入量" class="headerlink" title="查询网站收入量"></a>查询网站收入量</h3><p>浏览器中输入：site:www.zlstory.com</p>
 <p>从新站录入的时刻来讲，google快于百度，百度关于新站不会马上录入，乃至适当长的时刻内都不会录入，只需经过百度的检测期后，百度才会许多录入该站点内容，这需求很长一段时刻。</p>
@@ -165,7 +177,7 @@ $.ajax({
   error: function() {
     $('.btn_click_load').css('display','block');
   }
-});</script><script id="dsq-count-scr" src="//zlstory.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/javaScript小知识/" style="font-size: 15px;">javaScript小知识</a> <a href="/tags/es6/" style="font-size: 15px;">es6</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/Array/" style="font-size: 15px;">Array</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/seo/" style="font-size: 15px;">seo</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/seo/">互联网常见名词解释</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/webpack/">浅谈前端项目模块化工具webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/js-basic/">JavaScript核心-ECMAScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/vue/">vue入门知识小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/hexo/">hexo个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/responsive/">响应式开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_1/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_2/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react3/">React</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//zlstory.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://sinsle.com/" title="休克" target="_blank">休克</a><ul></ul><a href="https://www.wujiabk.com" title="吴佳博客" target="_blank">吴佳博客</a><ul></ul><a href="http://www.jackeybiao.com/" title="韩彪博客" target="_blank">韩彪博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">zlstory.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+});</script><script id="dsq-count-scr" src="//zlstory.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/Array/" style="font-size: 15px;">Array</a> <a href="/tags/javaScript小知识/" style="font-size: 15px;">javaScript小知识</a> <a href="/tags/es6/" style="font-size: 15px;">es6</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/seo/" style="font-size: 15px;">seo</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/seo/">互联网常见名词解释</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/webpack/">浅谈前端项目模块化工具webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/js-basic/">JavaScript核心-ECMAScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/vue/">vue入门知识小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/hexo/">hexo个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/responsive/">响应式开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_1/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/es6_2/">ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/react3/">React</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//zlstory.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://sinsle.com/" title="休克" target="_blank">休克</a><ul></ul><a href="https://www.wujiabk.com" title="吴佳博客" target="_blank">吴佳博客</a><ul></ul><a href="http://www.jackeybiao.com/" title="韩彪博客" target="_blank">韩彪博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">zlstory.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
 if (search_path.length == 0) {
    search_path = 'search.xml';
 }
