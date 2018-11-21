@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="个人学习小结"><title>axios传参报错400问题总结 | zlstory</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-111606593-1','auto');ga('send','pageview');</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">axios传参报错400问题总结</h1><a id="logo" href="/.">zlstory</a><p class="description">若独学而无友，则孤陋且寡闻</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">axios传参报错400问题总结</h1><div class="post-meta">Aug 9, 2018</div><div class="post-content"><p>在使用axios传参的时候，发现只用post方法的时候，默认请求方式为payload，</p>
+<p><img src="http://p09xm7bj0.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180810163720.png" alt=" "></p>
+<p>百度了各种操作之后，试过以下几种方法：</p>
+<ol>
+<li>改变headers</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">headers: &#123;  <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded; charset=UTF-8'</span> &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://p09xm7bj0.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_201808101637202.png" alt=" "><br>这种操作虽然将payload改为了formData形式，但是依旧报400错</p>
+<ol start="2">
+<li>Json.stringify()</li>
+</ol>
+<p>请求头问题排除之后，开始研究参数自身问题，使用<code>json.stringify()</code>格式化参数之后，依旧不见效。</p>
+<ol start="3">
+<li>qs.stringify()</li>
+</ol>
+<p>之前没有接触过qs.stringify，发现他与json.stringify转换成最后的格式并不相同，所以对参数进行qs.stringify(data)之后，即使不设置headers也没有出现问题。成功。</p>
+<p><img src="http://p09xm7bj0.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_201808101637201.png" alt=" "></p>
+<ol start="4">
+<li>两者区别</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>:<span class="string">'hehe'</span>,<span class="attr">age</span>:<span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(a) <span class="comment">// "&#123;"a":"hehe","age":10&#125;"</span></span><br><span class="line"></span><br><span class="line">qs.stringify(a) <span class="comment">// name=hehe&amp;age=10</span></span><br></pre></td></tr></table></figure>
+<p>总结：(1)axios在使用post方法出现400问题时，不能直接传递一个js对象，而需要通过qs.stringify()将参数格式转换一下，注意：不能使用json.stringify（）。</p>
+<p>(2)axios请求头是随你的请求方式改变而改变的。</p>
+</div><div class="tags"><a href="/tags/vue/">vue</a></div><div class="post-nav"><a href="/2018/09/11/css/" class="pre">常用css汇总</a><a href="/2018/07/20/vue-tips/" class="next">vue知识小结</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'zlstory',
+  repo: 'zlstory.github.io',
+  oauth: {
+    client_id: '2beb49205958bc8a66be',
+    client_secret: '1e8e5079085aa3df305c2e00d0ba45a326992962',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/javaScript小知识/" style="font-size: 15px;">javaScript小知识</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/environment/" style="font-size: 15px;">environment</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/es6/" style="font-size: 15px;">es6</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/Array/" style="font-size: 15px;">Array</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/seo/" style="font-size: 15px;">seo</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/19/environment/">重装系统之后的一系列操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/06/vue-note4/">VUE去哪儿网学习笔记3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/vue-note3/">VUE去哪儿网学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/vue-note2/">VUE去哪儿网学习笔记1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/css/">常用css汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/09/muse1/">axios传参报错400问题总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/20/vue-tips/">vue知识小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/20/vueLife/">vue常用的八种生命周期函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/mvvm/">通过todolist简单了解vue的mvvm模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/13/git/">git学习笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://sinsle.com/" title="异　见" target="_blank">异　见</a><ul></ul><a href="https://www.wujiabk.com" title="吴佳博客" target="_blank">吴佳博客</a><ul></ul><a href="http://www.jackeybiao.com/" title="韩彪博客" target="_blank">韩彪博客</a><ul></ul><a href="http://xiangnick.website/" title="XiangNick" target="_blank">XiangNick</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">zlstory.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?68cb98bd2a475f71ad8508d14ad906ba";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
