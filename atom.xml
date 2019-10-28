@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zlstory.com/"/>
-  <updated>2019-10-28T13:40:16.524Z</updated>
+  <updated>2019-10-28T13:37:02.485Z</updated>
   <id>http://zlstory.com/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>vuex的学习总结</title>
-    <link href="http://zlstory.com/2019/07/20/vuex/"/>
-    <id>http://zlstory.com/2019/07/20/vuex/</id>
-    <published>2019-07-19T16:00:00.000Z</published>
-    <updated>2019-10-28T13:40:16.524Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是vuex"><a href="#什么是vuex" class="headerlink" title="什么是vuex"></a>什么是vuex</h2><p> vuex：专门为vue.js应用程序开发的状态管理模式</p><h2 id="为什么用vuex"><a href="#为什么用vuex" class="headerlink" title="为什么用vuex"></a>为什么用vuex</h2><p> 当我们构建一个中大型的单页面应用程序时，vuex可以更好的帮助我们在组建外部统一管理状态</p><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="state-必须"><a href="#state-必须" class="headerlink" title="state(必须)"></a>state(必须)</h3><ol><li><p>state是唯一的数据源</p></li><li><p>单一状态树，即没有层级</p></li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">    count()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.count</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><p> 通过getters可以基于state派生出一些新的状态</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        todos:[</span><br><span class="line">            &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">text</span>:<span class="string">"111"</span>,<span class="attr">done</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">            &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">text</span>:<span class="string">"222"</span>,<span class="attr">done</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">        doneTodos: <span class="function"><span class="params">state</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> state.todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.done)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="mutations-必须"><a href="#mutations-必须" class="headerlink" title="mutations(必须)"></a>mutations(必须)</h3><p>更改vuex的store中状态唯一的方法就是提交mutation</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        count:<span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123; <span class="comment">//唯一的方法去改变</span></span><br><span class="line">        increment(state)&#123;</span><br><span class="line">            state.count ++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用increment方法</span></span><br><span class="line"></span><br><span class="line">store.commit(<span class="string">"increment"</span>)</span><br></pre></td></tr></table></figure><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>action提交的是mutation，而不是直接变更状态</p><p>action可以包含任意异步操作</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        count:<span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123; <span class="comment">//只能进行同步操作</span></span><br><span class="line">        increment(state)&#123;</span><br><span class="line">            state.count ++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions:&#123;</span><br><span class="line">        increment(context)&#123; <span class="comment">//可以执行异步操作</span></span><br><span class="line">            context.commit(<span class="string">"increment"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p>面对复杂的应用程序，当管理的状态比较多的时候，我们需要将vuex的store对象分割成模块（modules）</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">    state : &#123; ... &#125;,</span><br><span class="line">    mutation : &#123; ... &#125;,</span><br><span class="line">    actions : &#123; ... &#125;,</span><br><span class="line">    getters : &#123; ... &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">    state : &#123; ... &#125;,</span><br><span class="line">    mutation : &#123; ... &#125;,</span><br><span class="line">    actions : &#123; ... &#125;,</span><br><span class="line">    getters : &#123; ... &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    modules:&#123;</span><br><span class="line">        a:moduleA,</span><br><span class="line">        b:moduleB </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;什么是vuex&quot;&gt;&lt;a href=&quot;#什么是vuex&quot; class=&quot;headerlink&quot; title=&quot;什么是vuex&quot;&gt;&lt;/a&gt;什么是vuex&lt;/h2&gt;&lt;p&gt; vuex：专门为vue.js应用程序开发的状态管理模式&lt;/p&gt;
-&lt;h2 id=&quot;为什么用vuex&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="vue，vuex" scheme="http://zlstory.com/tags/vue%EF%BC%8Cvuex/"/>
-    
-  </entry>
   
   <entry>
     <title>在vue-cli中使用websocket</title>
@@ -68,11 +44,35 @@
   </entry>
   
   <entry>
+    <title>vuex的学习总结</title>
+    <link href="http://zlstory.com/2019/05/20/vuex/"/>
+    <id>http://zlstory.com/2019/05/20/vuex/</id>
+    <published>2019-05-19T16:00:00.000Z</published>
+    <updated>2019-10-28T13:42:51.688Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是vuex"><a href="#什么是vuex" class="headerlink" title="什么是vuex"></a>什么是vuex</h2><p> vuex：专门为vue.js应用程序开发的状态管理模式</p><h2 id="为什么用vuex"><a href="#为什么用vuex" class="headerlink" title="为什么用vuex"></a>为什么用vuex</h2><p> 当我们构建一个中大型的单页面应用程序时，vuex可以更好的帮助我们在组建外部统一管理状态</p><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="state-必须"><a href="#state-必须" class="headerlink" title="state(必须)"></a>state(必须)</h3><ol><li><p>state是唯一的数据源</p></li><li><p>单一状态树，即没有层级</p></li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">    count()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.count</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><p> 通过getters可以基于state派生出一些新的状态</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        todos:[</span><br><span class="line">            &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">text</span>:<span class="string">"111"</span>,<span class="attr">done</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">            &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">text</span>:<span class="string">"222"</span>,<span class="attr">done</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">        doneTodos: <span class="function"><span class="params">state</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> state.todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.done)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="mutations-必须"><a href="#mutations-必须" class="headerlink" title="mutations(必须)"></a>mutations(必须)</h3><p>更改vuex的store中状态唯一的方法就是提交mutation</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        count:<span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123; <span class="comment">//唯一的方法去改变</span></span><br><span class="line">        increment(state)&#123;</span><br><span class="line">            state.count ++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用increment方法</span></span><br><span class="line"></span><br><span class="line">store.commit(<span class="string">"increment"</span>)</span><br></pre></td></tr></table></figure><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>action提交的是mutation，而不是直接变更状态</p><p>action可以包含任意异步操作</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        count:<span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123; <span class="comment">//只能进行同步操作</span></span><br><span class="line">        increment(state)&#123;</span><br><span class="line">            state.count ++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions:&#123;</span><br><span class="line">        increment(context)&#123; <span class="comment">//可以执行异步操作</span></span><br><span class="line">            context.commit(<span class="string">"increment"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p>面对复杂的应用程序，当管理的状态比较多的时候，我们需要将vuex的store对象分割成模块（modules）</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">    state : &#123; ... &#125;,</span><br><span class="line">    mutation : &#123; ... &#125;,</span><br><span class="line">    actions : &#123; ... &#125;,</span><br><span class="line">    getters : &#123; ... &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">    state : &#123; ... &#125;,</span><br><span class="line">    mutation : &#123; ... &#125;,</span><br><span class="line">    actions : &#123; ... &#125;,</span><br><span class="line">    getters : &#123; ... &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    modules:&#123;</span><br><span class="line">        a:moduleA,</span><br><span class="line">        b:moduleB </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是vuex&quot;&gt;&lt;a href=&quot;#什么是vuex&quot; class=&quot;headerlink&quot; title=&quot;什么是vuex&quot;&gt;&lt;/a&gt;什么是vuex&lt;/h2&gt;&lt;p&gt; vuex：专门为vue.js应用程序开发的状态管理模式&lt;/p&gt;
+&lt;h2 id=&quot;为什么用vuex&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="vue，vuex" scheme="http://zlstory.com/tags/vue%EF%BC%8Cvuex/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vue的知识点</title>
-    <link href="http://zlstory.com/2019/07/20/vueTheory/"/>
-    <id>http://zlstory.com/2019/07/20/vueTheory/</id>
-    <published>2019-07-19T16:00:00.000Z</published>
-    <updated>2019-10-28T13:39:20.717Z</updated>
+    <link href="http://zlstory.com/2019/04/12/vueTheory/"/>
+    <id>http://zlstory.com/2019/04/12/vueTheory/</id>
+    <published>2019-04-11T16:00:00.000Z</published>
+    <updated>2019-10-28T13:43:03.319Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>nextTick 可以让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM。</p></li><li><p>生命周期函数就是组件在初始化或者数据更新时会触发的钩子函数。</p></li></ol>]]></content>
     
@@ -277,6 +277,29 @@
   </entry>
   
   <entry>
+    <title>常用css汇总</title>
+    <link href="http://zlstory.com/2018/09/11/css/"/>
+    <id>http://zlstory.com/2018/09/11/css/</id>
+    <published>2018-09-10T16:00:00.000Z</published>
+    <updated>2018-09-11T01:26:52.560Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="改变placeholder颜色"><a href="#改变placeholder颜色" class="headerlink" title="改变placeholder颜色"></a>改变placeholder颜色</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 19+ */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 4 to 18 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Internet Explorer 10-11 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="替换背景图改变checkbox样式"><a href="#替换背景图改变checkbox样式" class="headerlink" title="替换背景图改变checkbox样式"></a>替换背景图改变checkbox样式</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"spot"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>我已阅读并接受《芒果用户服务协议》</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">label</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">text-align</span>:left;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">label</span> <span class="selector-tag">input</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">vertical-align</span>: bottom;</span><br><span class="line"><span class="attribute">margin-right</span>:<span class="number">10px</span>;</span><br><span class="line"><span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/uncheck.png"</span>) no-repeat;  <span class="comment">/*未选中的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>:<span class="number">12px</span>;</span><br><span class="line"><span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">z-index</span>:<span class="number">5</span>;</span><br><span class="line"><span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/checked.png"</span>) no-repeat;  <span class="comment">/*选中后的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;改变placeholder颜色&quot;&gt;&lt;a href=&quot;#改变placeholder颜色&quot; class=&quot;headerlink&quot; title=&quot;改变placeholder颜色&quot;&gt;&lt;/a&gt;改变placeholder颜色&lt;/h2&gt;&lt;figure class=&quot;highli
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>随机生成图片验证码</title>
     <link href="http://zlstory.com/2018/09/11/identifyImg/"/>
     <id>http://zlstory.com/2018/09/11/identifyImg/</id>
@@ -301,29 +324,6 @@
       <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
     
       <category term="canvas" scheme="http://zlstory.com/tags/canvas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用css汇总</title>
-    <link href="http://zlstory.com/2018/09/11/css/"/>
-    <id>http://zlstory.com/2018/09/11/css/</id>
-    <published>2018-09-10T16:00:00.000Z</published>
-    <updated>2018-09-11T01:26:52.560Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="改变placeholder颜色"><a href="#改变placeholder颜色" class="headerlink" title="改变placeholder颜色"></a>改变placeholder颜色</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 19+ */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 4 to 18 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Internet Explorer 10-11 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="替换背景图改变checkbox样式"><a href="#替换背景图改变checkbox样式" class="headerlink" title="替换背景图改变checkbox样式"></a>替换背景图改变checkbox样式</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"spot"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>我已阅读并接受《芒果用户服务协议》</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">label</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">text-align</span>:left;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">label</span> <span class="selector-tag">input</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">vertical-align</span>: bottom;</span><br><span class="line"><span class="attribute">margin-right</span>:<span class="number">10px</span>;</span><br><span class="line"><span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/uncheck.png"</span>) no-repeat;  <span class="comment">/*未选中的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>:<span class="number">12px</span>;</span><br><span class="line"><span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">z-index</span>:<span class="number">5</span>;</span><br><span class="line"><span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/checked.png"</span>) no-repeat;  <span class="comment">/*选中后的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;改变placeholder颜色&quot;&gt;&lt;a href=&quot;#改变placeholder颜色&quot; class=&quot;headerlink&quot; title=&quot;改变placeholder颜色&quot;&gt;&lt;/a&gt;改变placeholder颜色&lt;/h2&gt;&lt;figure class=&quot;highli
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
     
   </entry>
   
