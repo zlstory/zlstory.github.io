@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zlstory.com/"/>
-  <updated>2019-11-21T03:14:29.384Z</updated>
+  <updated>2019-12-17T06:30:46.333Z</updated>
   <id>http://zlstory.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>canvas学习笔记——高级篇</title>
+    <link href="http://zlstory.com/2019/12/17/canvas2/"/>
+    <id>http://zlstory.com/2019/12/17/canvas2/</id>
+    <published>2019-12-16T16:00:00.000Z</published>
+    <updated>2019-12-17T06:30:46.333Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>阴影</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">context.shadowColor </span><br><span class="line"></span><br><span class="line">context.shadowOffsetX</span><br><span class="line">context.shadowOffsetY</span><br><span class="line"></span><br><span class="line">context.shadowBlur <span class="comment">//模糊程度</span></span><br></pre></td></tr></table></figure><ol start="2"><li><p>globalAlpha(默认为1):透明度设置</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.globalAlpha = <span class="number">0.7</span></span><br></pre></td></tr></table></figure></li><li><p>globalCompositeOperation:互相遮盖时产生的效果（有十一种属性）</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.globalCompositeOperation =  <span class="string">"source-over"</span></span><br></pre></td></tr></table></figure></li><li><p>剪辑区域 clip</p></li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.beginPath()</span><br><span class="line">context.fillStyle =<span class="string">"black"</span></span><br><span class="line">context.fillRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height)           </span><br><span class="line"></span><br><span class="line">context.beginPath()</span><br><span class="line">context.arc(<span class="number">400</span>,<span class="number">400</span>,<span class="number">150</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>)</span><br><span class="line">context.fillStyle =<span class="string">"#fff"</span></span><br><span class="line">context.fill()</span><br><span class="line">context.clip()</span><br><span class="line"></span><br><span class="line">context.font = <span class="string">"bold 100px Arial"</span></span><br><span class="line">context.textAlign = <span class="string">"center"</span></span><br><span class="line">context.textBaseline = <span class="string">"middle"</span></span><br><span class="line">context.fillStyle = <span class="string">"pink"</span></span><br><span class="line">context.fillText(<span class="string">"CANVAS"</span> ,canvas.width/<span class="number">2</span>,canvas.height/<span class="number">2</span>)</span><br></pre></td></tr></table></figure><ol start="5"><li>canvas中获取鼠标坐标<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = event.clientX - canvas.getBoundingClientRect().left</span><br><span class="line"><span class="keyword">var</span> y = event.clientY - canvas.getBoundingClientRect().top</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;阴影&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
+      
+    
+    </summary>
+    
+    
+      <category term="canvas" scheme="http://zlstory.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>canvas学习笔记——基础篇</title>
+    <link href="http://zlstory.com/2019/12/16/canvas/"/>
+    <id>http://zlstory.com/2019/12/16/canvas/</id>
+    <published>2019-12-15T16:00:00.000Z</published>
+    <updated>2019-12-17T05:48:04.361Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>创建canvas以及初始化</li></ol><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>)</span><br><span class="line">  <span class="keyword">if</span> (!canvas.getContext) &#123; <span class="comment">//判断浏览器是否支持canvas</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>)</span><br></pre></td></tr></table></figure><ol start="2"><li>绘制线条</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">context.moveTo(x,y) <span class="comment">//状态设置</span></span><br><span class="line"></span><br><span class="line">context.lineTo(x,y) <span class="comment">//状态设置</span></span><br><span class="line"></span><br><span class="line">context.stroke() <span class="comment">//绘制</span></span><br></pre></td></tr></table></figure><p>在定义路径的时候如果有多个路径，我们希望他们互不干扰，需要用到</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.beginPath() <span class="comment">//重新绘制，可以不用closePath结束</span></span><br><span class="line">context.closePath() <span class="comment">//会用一条线将不封闭的首尾连接起来</span></span><br></pre></td></tr></table></figure><ol start="3"><li>定义样式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.lineWidth <span class="comment">//线条的宽度</span></span><br><span class="line"></span><br><span class="line">context.strokeStyle <span class="comment">//线条的颜色</span></span><br><span class="line"></span><br><span class="line">context.stroke() <span class="comment">//绘制线条</span></span><br><span class="line"></span><br><span class="line">context.fillStyle <span class="comment">//填充的颜色</span></span><br><span class="line"></span><br><span class="line">context.fill() <span class="comment">//绘制填充颜色</span></span><br></pre></td></tr></table></figure></li></ol><p>先stroke()之后再fill() 填充会将linewidth的一半遮挡住，若先fill再stroke不会有这种问题</p><ol start="4"><li>绘制弧线</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.arc(</span><br><span class="line">    centerx,centery,radius, <span class="comment">//圆心坐标以及半径</span></span><br><span class="line">    startingAngle,endingAngle, <span class="comment">//开始与结束弧度值</span></span><br><span class="line">    anticlockwise = <span class="literal">false</span> <span class="comment">//可选，顺时针(false)</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><ol start="5"><li>刷新画布操作</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height)</span><br></pre></td></tr></table></figure><ol start="6"><li>绘制矩形</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">cxt.rect(x,y,width,height)</span><br><span class="line"></span><br><span class="line">ctx.fillRect(x,y,width,height) <span class="comment">//填充的矩形</span></span><br><span class="line"></span><br><span class="line">ctx.strokeRect(x,y,width,height) <span class="comment">//带边框的矩形</span></span><br></pre></td></tr></table></figure><ol start="7"><li>线条的属性</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//lineCap：线条两边头突出的形状，默认无</span></span><br><span class="line"><span class="comment">//lineCap:butt,round,square</span></span><br><span class="line"></span><br><span class="line">context.lineCap = <span class="string">"butt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//lineJoin:线与线之间连接的部分</span></span><br><span class="line"><span class="comment">//lineJoin:miter,bevel,round</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//miterLimit:当lineJoin属性是miter时，内角与外角的之间长度是10（默认值），超过limit值是会用beveil形式显示</span></span><br><span class="line">context.lineJoin = <span class="string">"miter"</span></span><br><span class="line">context.miterLimit = <span class="number">10</span></span><br></pre></td></tr></table></figure><ol start="8"><li>图形变换</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">translate(x,y) <span class="comment">//位移</span></span><br><span class="line"></span><br><span class="line">rotate(deg) <span class="comment">//旋转</span></span><br><span class="line"></span><br><span class="line">scale(sx,sy) <span class="comment">//缩放</span></span><br></pre></td></tr></table></figure><p>图形变换会改变其他的图形位置，canvas为我们提供了两个接口用于保存状态和恢复</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//需成对出现</span></span><br><span class="line">context.save() <span class="comment">//在图形变换前保存状态</span></span><br><span class="line">context.restore() <span class="comment">//返回在save()节点所有的状态</span></span><br></pre></td></tr></table></figure><ol start="9"><li><p>变换矩阵</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">transform(a,b,c,d,e,f)</span><br><span class="line"><span class="comment">//a,d:水平、垂直缩放</span></span><br><span class="line"><span class="comment">//b,c:水平、垂直倾斜</span></span><br><span class="line"><span class="comment">//e,f:水平、垂直位移</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//setTransform会让之前设置的transform失效</span></span><br><span class="line">setTransform(a,b,c,d,e,f)</span><br></pre></td></tr></table></figure></li><li><p>线性渐变fillStyle</p></li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> grd = context.createLinearGradient(xstart,ystart,xend,yend)</span><br><span class="line">grd.addColorStop(stop,color)</span><br></pre></td></tr></table></figure><p>demo:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">  <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>)</span><br><span class="line"></span><br><span class="line">    canvas.width = <span class="number">800</span></span><br><span class="line">    canvas.height = <span class="number">800</span></span><br><span class="line">    <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> linearGrad = context.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">800</span>,<span class="number">800</span>)</span><br><span class="line">    linearGrad.addColorStop(<span class="number">0.0</span>,<span class="string">"#fff"</span>)</span><br><span class="line">    linearGrad.addColorStop(<span class="number">0.5</span>,<span class="string">"red"</span>)</span><br><span class="line">    linearGrad.addColorStop(<span class="number">1.0</span>,<span class="string">"#000"</span>)</span><br><span class="line">    </span><br><span class="line">    context.fillStyle=linearGrad</span><br><span class="line">    context.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">800</span>,<span class="number">800</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><ol start="11"><li><p>径向渐变Radial Gradient<br>用法与linearGradient相似</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> grd = context.createRadialGradient(x0,y0,r0,x1,y1,r1)</span><br><span class="line">grd.addColorStop(stop,color)</span><br></pre></td></tr></table></figure></li><li><p>使用图片、画布或者video:createPattern</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">createPattern(img,repeat-style)</span><br><span class="line">createPattern(canvas,repeat-style)</span><br><span class="line"><span class="comment">//repeat-style:no-repeat,repeat-x,repeat-y,repeat</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bg = <span class="keyword">new</span> Image()</span><br><span class="line">bg.src = <span class="string">"demo.png"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pattern = context.createPattern(bg,<span class="string">"no-repeat"</span>)</span><br><span class="line">context.fillStyle = pattern</span><br><span class="line">context.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">800</span>,<span class="number">800</span>)</span><br></pre></td></tr></table></figure></li><li><p>绘制圆弧: arcTo（上面有arc的方式）</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.moveTo(x0,y0) <span class="comment">// 开始点</span></span><br><span class="line"></span><br><span class="line"> context.arcTo(x1,y1,  <span class="comment">//控制点</span></span><br><span class="line">                x2,y2, <span class="comment">//结束点</span></span><br><span class="line">                radius)</span><br></pre></td></tr></table></figure></li><li><p>贝塞尔曲线：</p></li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//二次贝塞尔曲线</span></span><br><span class="line">context.moveTo(x0,y0) <span class="comment">// 曲线起始点</span></span><br><span class="line">context.quadraticCurveTo(</span><br><span class="line">    x1,y1, <span class="comment">//控制点</span></span><br><span class="line">    x2,y2 <span class="comment">//结束点</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">//三次贝塞尔曲线</span></span><br><span class="line">context.bezeirCurveTo(</span><br><span class="line">    x1,y1, x2,y2, <span class="comment">//控制点</span></span><br><span class="line">    x3,y3 <span class="comment">//结束点</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><ol start="15"><li>文字渲染</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">context.font = <span class="string">"bold 30px Arial"</span></span><br><span class="line">context.fillText(string,x,y,[maxlen])</span><br><span class="line">context.strokeText(string,x,y,[maxlen])</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置文本水平对齐</span></span><br><span class="line">context.textAlign = <span class="string">"left"</span> <span class="comment">//center right</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//设置文本垂直对齐</span></span><br><span class="line">context.textBaseline = <span class="string">"top"</span> <span class="comment">//middle bottom alphabetic(default) ideographic hanging</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取渲染后的文字度量</span></span><br><span class="line">context.measureText(string).width <span class="comment">//目前只能获取宽度</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;创建canvas以及初始化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="canvas" scheme="http://zlstory.com/tags/canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>在vue中使用iframe</title>
@@ -97,6 +149,22 @@
   </entry>
   
   <entry>
+    <title>vue中父子组件传值的几种方式</title>
+    <link href="http://zlstory.com/2019/07/21/vue-parent-child/"/>
+    <id>http://zlstory.com/2019/07/21/vue-parent-child/</id>
+    <published>2019-07-20T16:00:00.000Z</published>
+    <updated>2019-11-22T09:29:05.258Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vuex的学习总结</title>
     <link href="http://zlstory.com/2019/05/20/vuex/"/>
     <id>http://zlstory.com/2019/05/20/vuex/</id>
@@ -149,9 +217,9 @@
     <link href="http://zlstory.com/2019/04/12/vueTheory/"/>
     <id>http://zlstory.com/2019/04/12/vueTheory/</id>
     <published>2019-04-11T16:00:00.000Z</published>
-    <updated>2019-10-28T13:43:03.319Z</updated>
+    <updated>2019-11-22T08:25:30.340Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>nextTick 可以让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM。</p></li><li><p>生命周期函数就是组件在初始化或者数据更新时会触发的钩子函数。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>nextTick 可以让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM。</p></li><li><p>生命周期函数就是组件在初始化或者数据更新时会触发的钩子函数。</p></li></ol><p>主要注意的几点：</p><p>a. beforeCreate调用的时候，是获取不到props或者data中的数据。</p><p>b. beforeMount是在挂载前执行的，然后开始创建VDOM并替换成真实DOM，最后执行mounted钩子。</p><p>c. activated和deactivated 是keep-alive组件独有的。</p><p>d. 在执行销毁操作前调用beforeDestory钩子函数，如果有子组件的话，也会递归销毁子组件，所有子组件都销毁完毕之后才会执行根组件的destroyed钩子函数</p><ol start="3"><li>computed和watch的区别与使用场景</li></ol><p>区别：</p><pre><code>watch：监听属性的变化；需要在数据变化时执行异步或者开销较大的操作时使用；computed：通过属性计算儿的来的属性;值有缓存；需要用return来返回最终结果。</code></pre><p>场景：</p><p>   computed：当一个属性收到多个属性影响的时候</p><p>   watch：当一条数据影响多条数据的时候 </p>]]></content>
     
     <summary type="html">
     
@@ -163,7 +231,7 @@
 &lt;li&gt;&lt;p&gt;生命周期函数就是组件在初始化或者数据更新时会触发的钩子函数。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;p&gt;主要注意的几点：&lt;/
       
     
     </summary>
@@ -349,29 +417,6 @@
   </entry>
   
   <entry>
-    <title>常用css汇总</title>
-    <link href="http://zlstory.com/2018/09/11/css/"/>
-    <id>http://zlstory.com/2018/09/11/css/</id>
-    <published>2018-09-10T16:00:00.000Z</published>
-    <updated>2018-09-11T01:26:52.560Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="改变placeholder颜色"><a href="#改变placeholder颜色" class="headerlink" title="改变placeholder颜色"></a>改变placeholder颜色</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 19+ */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 4 to 18 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Internet Explorer 10-11 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="替换背景图改变checkbox样式"><a href="#替换背景图改变checkbox样式" class="headerlink" title="替换背景图改变checkbox样式"></a>替换背景图改变checkbox样式</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"spot"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>我已阅读并接受《芒果用户服务协议》</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">label</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">text-align</span>:left;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">label</span> <span class="selector-tag">input</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">vertical-align</span>: bottom;</span><br><span class="line"><span class="attribute">margin-right</span>:<span class="number">10px</span>;</span><br><span class="line"><span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/uncheck.png"</span>) no-repeat;  <span class="comment">/*未选中的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>:<span class="number">12px</span>;</span><br><span class="line"><span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">z-index</span>:<span class="number">5</span>;</span><br><span class="line"><span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/checked.png"</span>) no-repeat;  <span class="comment">/*选中后的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;改变placeholder颜色&quot;&gt;&lt;a href=&quot;#改变placeholder颜色&quot; class=&quot;headerlink&quot; title=&quot;改变placeholder颜色&quot;&gt;&lt;/a&gt;改变placeholder颜色&lt;/h2&gt;&lt;figure class=&quot;highli
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
     <title>随机生成图片验证码</title>
     <link href="http://zlstory.com/2018/09/11/identifyImg/"/>
     <id>http://zlstory.com/2018/09/11/identifyImg/</id>
@@ -393,9 +438,32 @@
     </summary>
     
     
+      <category term="canvas" scheme="http://zlstory.com/tags/canvas/"/>
+    
       <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
     
-      <category term="canvas" scheme="http://zlstory.com/tags/canvas/"/>
+  </entry>
+  
+  <entry>
+    <title>常用css汇总</title>
+    <link href="http://zlstory.com/2018/09/11/css/"/>
+    <id>http://zlstory.com/2018/09/11/css/</id>
+    <published>2018-09-10T16:00:00.000Z</published>
+    <updated>2018-09-11T01:26:52.560Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="改变placeholder颜色"><a href="#改变placeholder颜色" class="headerlink" title="改变placeholder颜色"></a>改变placeholder颜色</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 19+ */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-moz-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Mozilla Firefox 4 to 18 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-ms-input-placeholder</span> &#123;</span><br><span class="line">    <span class="comment">/* Internet Explorer 10-11 */</span></span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="替换背景图改变checkbox样式"><a href="#替换背景图改变checkbox样式" class="headerlink" title="替换背景图改变checkbox样式"></a>替换背景图改变checkbox样式</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"spot"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>我已阅读并接受《芒果用户服务协议》</span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">label</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">50px</span>;</span><br><span class="line"><span class="attribute">text-align</span>:left;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">label</span> <span class="selector-tag">input</span>&#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">24px</span>;</span><br><span class="line"><span class="attribute">vertical-align</span>: bottom;</span><br><span class="line"><span class="attribute">margin-right</span>:<span class="number">10px</span>;</span><br><span class="line"><span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">display</span>:inline-block;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/uncheck.png"</span>) no-repeat;  <span class="comment">/*未选中的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>:<span class="number">12px</span>;</span><br><span class="line"><span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">z-index</span>:<span class="number">5</span>;</span><br><span class="line"><span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.spot</span>&#123;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">"../images/checked.png"</span>) no-repeat;  <span class="comment">/*选中后的样式图片*/</span></span><br><span class="line"><span class="attribute">background-size</span>:<span class="number">24px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;改变placeholder颜色&quot;&gt;&lt;a href=&quot;#改变placeholder颜色&quot; class=&quot;headerlink&quot; title=&quot;改变placeholder颜色&quot;&gt;&lt;/a&gt;改变placeholder颜色&lt;/h2&gt;&lt;figure class=&quot;highli
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
     
   </entry>
   
@@ -445,79 +513,6 @@
     
     
       <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue知识小结</title>
-    <link href="http://zlstory.com/2018/07/20/vue-tips/"/>
-    <id>http://zlstory.com/2018/07/20/vue-tips/</id>
-    <published>2018-07-19T16:00:00.000Z</published>
-    <updated>2018-08-10T09:31:07.939Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="computed、watch与methods"><a href="#computed、watch与methods" class="headerlink" title="computed、watch与methods"></a>computed、watch与methods</h4><p>computed与watch具有缓存机制，如果涉及的变量不改变，则不会执行。</p><p>methods是任何变量改变都会触发methods函数。</p><h4 id="v-if-与-v-show"><a href="#v-if-与-v-show" class="headerlink" title="v-if 与 v-show"></a>v-if 与 v-show</h4><p>v-if 与 v-show 都能控制模板标签是否在页面中显示，但是条件是false时，v-if对应的标签不存在于dom中，而v-show是在标签内加入display：none隐藏dom；所以v-show的性能更高一点，因为他不会频繁的去操作dom。</p><h4 id="key值"><a href="#key值" class="headerlink" title="key值"></a>key值</h4><p>Vue提供了一种方式来表达“这两个元素是完全独立的，不要复用它们”。只需添加一个具有唯一值的 key 属性即可。</p><p>在v-for循环时可以使用key值来提高性能，需注意key尽量唯一且不要用index来标识key。</p><h4 id="改变数组并实时触发视图更新有三种方法"><a href="#改变数组并实时触发视图更新有三种方法" class="headerlink" title="改变数组并实时触发视图更新有三种方法"></a>改变数组并实时触发视图更新有三种方法</h4><ol><li><p>使用vue提供的数组变异方法</p><p> pop push shift unshift splice sort reverse</p></li><li><p>直接改变引用数据</p></li><li><p>使用Vue.set()方法或者实例</p><p>因为 Vue 无法探测普通的新增属性，所以直接向vue中数组以及对象中直接添加数据虽然改变了数据但是并不会改变页面中的视图。</p><p>set方法用于向响应式对象中添加一个属性，并确保这个新属性同样是响应式的，且触发视图更新。它必须用于向响应式对象上添加新属性</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;computed、watch与methods&quot;&gt;&lt;a href=&quot;#computed、watch与methods&quot; class=&quot;headerlink&quot; title=&quot;computed、watch与methods&quot;&gt;&lt;/a&gt;computed、watch与metho
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过todolist简单了解vue的mvvm模式</title>
-    <link href="http://zlstory.com/2018/07/19/mvvm/"/>
-    <id>http://zlstory.com/2018/07/19/mvvm/</id>
-    <published>2018-07-18T16:00:00.000Z</published>
-    <updated>2018-07-19T09:10:43.216Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>使用vue.js实现todoList的功能，体现了vue的编程思想是MVVM：不改变DOM，而是只操作数据，最后dom随着数据的改变而改变</li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">       &lt;input type=<span class="string">"text"</span> v-model = <span class="string">"inputValue"</span>&gt;</span><br><span class="line">       &lt;button @click = <span class="string">"handleBtnClick"</span>&gt;提交&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">       &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">           &lt;li v-for="item in list"&gt;</span></span><br><span class="line"><span class="regexp">               &#123;&#123;item&#125;&#125;</span></span><br><span class="line"><span class="regexp">           &lt;/</span>li&gt;</span><br><span class="line">       &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">   &lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">   &lt;script&gt;</span><br><span class="line">       <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">           el:<span class="string">"#app"</span>,</span><br><span class="line">           data:&#123;</span><br><span class="line">               list:[],</span><br><span class="line">               inputValue:<span class="string">''</span></span><br><span class="line">           &#125;,</span><br><span class="line">           methods:&#123;</span><br><span class="line">               handleBtnClick:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                 <span class="comment">//  console.log(this.inputValue)</span></span><br><span class="line">                 <span class="keyword">this</span>.list.push(<span class="keyword">this</span>.inputValue);</span><br><span class="line">                 <span class="keyword">this</span>.inputValue = <span class="string">''</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">   </span><br><span class="line">   &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><ol start="2"><li><p>使用JavaScript实现todolist的功能，体现的是MVP的编程思想</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> id=<span class="string">"input"</span>&gt;</span><br><span class="line">    &lt;button id=<span class="string">"btn"</span>&gt;提交&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;ul id="list"&gt;</span></span><br><span class="line"><span class="regexp">     </span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script src="http:/</span><span class="regexp">/code.jquery.com/</span>jquery<span class="number">-1.11</span><span class="number">.3</span>.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    function Page() &#123;  &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    $.extend(Page.prototype,&#123;</span></span><br><span class="line"><span class="string">        init:function()&#123;</span></span><br><span class="line"><span class="string">            this.bindEvents()</span></span><br><span class="line"><span class="string">        &#125;,</span></span><br><span class="line"><span class="string">        bindEvents:function()&#123;</span></span><br><span class="line">            var btn = $("#btn");</span><br><span class="line">            btn.on(<span class="string">"click"</span>,$.proxy(<span class="keyword">this</span>.handleBtnClick,<span class="keyword">this</span>))</span><br><span class="line">        &#125;,</span><br><span class="line">        handleBtnClick:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> inputValue = $(<span class="string">"#input"</span>).val();</span><br><span class="line">            <span class="keyword">var</span> ulElem = $(<span class="string">"#list"</span>)</span><br><span class="line">            ulElem.append(<span class="string">"&lt;li&gt;"</span>+inputValue+<span class="string">"&lt;/li&gt;"</span>);</span><br><span class="line">            $(<span class="string">"#input"</span>).val(<span class="string">""</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> page = <span class="keyword">new</span> Page();</span><br><span class="line">    page.init()</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>MVP与MVVM设计模式<br>(1) MVP: Model - View - Presenter</p></li></ol><p>M是模型层（上段代码并没有体现）</p><p>V是DOM</p><p>P是View层以及Model层的中转站(js部分)，当点击按钮的时候，控制器里面的代码会执行，负责了所有的逻辑部分，控制器可以调用模型层来发起ajax请求，也可以操作dom改变视图。</p><p>(2) MVVM:  View - ViewModel - Model</p><p>Model:负责存储数据<br>View:视图层，负责显示数据<br>ViewModel:vue自带的一层(内置)，不需要我们去关心怎么实现的。<br>当我们使用MVVM设计模式的时候，我们只需要关心view和model。</p><p>(3) 总结：在mvp设计模式开发的时候是面向DOM进行操作，mvvm设计模式面向数据进行编程，大大的简化了DOM的操作，可以节约代码量，提高代码性能。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;使用vue.js实现todoList的功能，体现了vue的编程思想是MVVM：不改变DOM，而是只操作数据，最后dom随着数据的改变而改变&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://zlstory.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git学习笔记</title>
-    <link href="http://zlstory.com/2018/07/13/git/"/>
-    <id>http://zlstory.com/2018/07/13/git/</id>
-    <published>2018-07-12T16:00:00.000Z</published>
-    <updated>2018-07-30T01:23:04.318Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h3><p>版本控制系统分为集中式和分布式。</p><h4 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h4><p>工具：SVN、CVS</p><p>工作模式：先从中央服务器获得最新版本，然后开始写代码，最后把自己的代码再推送给中央服务器。</p><p>缺点：必须联网才可工作（可以是局域网）。</p><h4 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h4><p>工具：git</p><p>工作模式：没有中央服务器，每个人的电脑上都是一个完整的版本库，共同开发的时候，只需将各自的修改推送给彼此就好了。为了更加方便开发者交换修改内容，分布式也会有一台电脑充当中央服务器。</p><p>优点：比集中式更加安全、不比联网也可以工作、强大的分支管理</p><h3 id="安装git–windows"><a href="#安装git–windows" class="headerlink" title="安装git–windows"></a>安装git–windows</h3><p>首先去<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git官网下载</a>按照默认选项安装即可。</p><p>安装完成之后，在Git Bash中’自报家门’：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure><p>注： 使用–global参数表示电脑上的所有仓库都用这个配置。</p><h3 id="git操作的基本命令"><a href="#git操作的基本命令" class="headerlink" title="git操作的基本命令"></a>git操作的基本命令</h3><ol><li><p>初始化git： 在所需的文件夹中使用<code>git init</code>命令可以将该文件夹变成git管理仓库。</p></li><li><p>当文件夹新增文件之后 使用<code>git add</code>命令来将文件添加至版本库，如修改了demo1.html：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git add demo1.html</span><br></pre></td></tr></table></figure></li><li><p>添加至版本库之后，使用<code>git commit</code>命令将文件提交到仓库。</p></li></ol><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git commit -m &quot;wrote a demo1 file&quot;</span><br></pre></td></tr></table></figure><p>注： -m参数后面是本次提交时的备注。</p><h3 id="git操作的删除命令"><a href="#git操作的删除命令" class="headerlink" title="git操作的删除命令"></a>git操作的删除命令</h3><ol><li><code>rm demo.html</code>：删除文件</li><li><code>git rm demo.html</code> <code>git commit -m &#39;confirm delete&#39;</code>：确认删除文件</li><li><code>git checkout -- demo.html</code>：将删除的文件恢复到最新版本</li></ol><h3 id="git操作常用命令"><a href="#git操作常用命令" class="headerlink" title="git操作常用命令"></a>git操作常用命令</h3><ol><li><p><code>git  status</code>：查看仓库当前的状态</p></li><li><p><code>git diff demo.html</code> ：查看某文件具体修改了什么内容</p></li><li><p><code>git log</code>：查看从最近到最远的提交日志</p><p> <code>git log --pretty=oneline</code>：查看从最近到最远提交时的备注，可以看到版本号</p></li><li><p><code>git reset --hard HEAD^</code>：使当前版本回归到上一个版本</p><p><code>git reset --hard commit_id</code>：hard后面加特定版本号（前几位就好），则回到特定版本</p></li><li><p><code>git reflog</code>：查看每次操作的命令</p></li></ol><h3 id="工作中遇见的问题及解决方案"><a href="#工作中遇见的问题及解决方案" class="headerlink" title="工作中遇见的问题及解决方案"></a>工作中遇见的问题及解决方案</h3><p>修改或新增文件后，没有<code>git pull -f --all</code></p><p>然后<code>git add .  | git commit -am &quot;init&quot;</code></p><p>导致github上的版本里有文件和本地版本冲突，下面给出冲突原因：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: failed to push some refs to &apos;https://gitee.com/junyaokeji/quanzidaihuan.git&apos;</span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Integrate the remote changes (e.g.</span><br><span class="line">hint: &apos;git pull ...&apos;) before pushing again.</span><br><span class="line">hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.</span><br></pre></td></tr></table></figure><p>解决办法是<code>git push -u origin master -f</code>强制覆盖已有的分支（可能会丢失改动）</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;版本控制系统&quot;&gt;&lt;a href=&quot;#版本控制系统&quot; class=&quot;headerlink&quot; title=&quot;版本控制系统&quot;&gt;&lt;/a&gt;版本控制系统&lt;/h3&gt;&lt;p&gt;版本控制系统分为集中式和分布式。&lt;/p&gt;
-&lt;h4 id=&quot;集中式版本控制系统&quot;&gt;&lt;a href=&quot;#集中式版
-      
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://zlstory.com/tags/git/"/>
     
   </entry>
   
